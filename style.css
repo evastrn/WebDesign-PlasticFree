@@ -1,0 +1,253 @@
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    height: 60px;
+}
+
+/* Logo zentrieren */
+.logo {
+    margin: 0 auto;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+/* Burger-Menü rechts */
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger-menu span {
+    display: block;
+    height: 4px;
+    width: 35px;
+    background-color: #6F6F6F;
+    margin: 3px 0;
+    border-radius: 50px; /* Abgerundete Kanten */
+}
+
+/* Styling für den Main-Bereich */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container für das Bild */
+.image-container {
+    position: relative; /* Damit der Button sich relativ zum Container positioniert */
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px; /* Optional: Abstand nach unten */
+}
+
+/* Das Bild */
+.responsive-image {
+    width: 100%;
+    max-width: 500px;
+    height: 600px; /* Festgelegte Höhe für das Bild */
+    object-fit: cover; /* Füllt den Container aus, ohne das Seitenverhältnis zu verzerren */
+    border-radius: 40px; /* Runde Ecken */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+}
+
+/* Der runde Button */
+.new-badge {
+    position: absolute; /* Absolut positioniert relativ zum Container */
+    top: -25px; /* Abstand vom oberen Rand des Bildes */
+    right: 50px; /* Abstand vom rechten Rand des Bildes */
+    background-color: #5C835C; /* Grüner Hintergrund */
+    color: white; /* Weißer Text */
+    font-family: 'Montserrat', sans-serif; /* Benutzerdefinierte Schriftart */
+    font-size: 1em; /* Schriftgröße */
+    font-weight: bold; /* Fettschrift */
+    text-align: center; /* Zentriert den Text */
+    width: 60px; /* Breite des Buttons */
+    height: 60px; /* Höhe des Buttons */
+    border-radius: 50%; /* Macht den Button rund */
+    display: flex; /* Zentrierung von Inhalt */
+    justify-content: center; /* Horizontale Zentrierung */
+    align-items: center; /* Vertikale Zentrierung */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Schatten für den Button */
+    z-index: 10; /* Stellt sicher, dass der Button über dem Bild liegt */
+}
+
+
+
+/* Inhalt unter dem Bild */
+.content-section {
+    text-align: center;
+    padding: 10px;
+}
+
+.content-section h1 {
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1.5em;
+    color: #000000;
+    max-width: 400px;
+}
+
+/* Call-to-Action Styling */
+.call-to-action {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 30px;
+    border: 2px solid #000000;
+    font-size: 1em; /* Schriftgröße */
+    font-family: 'Montserrat', sans-serif; /* Schriftart */
+    font-weight: bold; /* Schriftgewicht */
+    text-transform: uppercase; /* Großbuchstaben */
+    letter-spacing: 1px; /* Buchstabenabstand */
+    text-decoration: none; /* Unterstrich entfernen */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Optional: Animationseffekt */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Schlagschatten */
+}
+
+.cta-button:hover {
+    background-color: #5C835C;
+    color: #fff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Tieferer Schlagschatten beim Hover */
+}
+
+/* Slider Section */
+.slider-section {
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.slider-section h2 {
+    color: #5C835C;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    overflow: hidden; /* Überschüssige Inhalte außerhalb des Containers ausblenden */
+    width: 100%;
+    max-width: 800px; /* Optional: Begrenzung der Breite für größere Bildschirme */
+    margin: 0 auto;
+}
+
+/* Slider Wrapper */
+.slider {
+    display: flex;
+    transition: transform 0.3s ease-in-out; /* Sanfter Übergang beim Swipen */
+    gap: 15px; /* Abstand zwischen den Bildern */
+}
+
+/* Slider Items */
+.slider-item {
+    flex: 0 0 auto; /* Kein automatisches Vergrößern */
+    width: 240px; /* Breitere Bilder */
+    height: 300px; /* Höhe passend zum 4:5-Format */
+    overflow: hidden; /* Überstehende Bildteile ausblenden */
+    border-radius: 10px; /* Runde Ecken */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Schatten */
+}
+
+/* Bilder innerhalb der Slider Items */
+.slider-item img {
+    width: 100%; /* Bild füllt die Breite des Containers */
+    height: 100%; /* Bild füllt die Höhe des Containers */
+    object-fit: cover; /* Schneidet das Bild zu, um das 4:5-Verhältnis zu wahren */
+    border-radius: 10px; /* Runde Ecken des Bildes */
+}
+
+
+.arrow-right span {
+    font-size: 1.5em;
+    color: #5C835C;
+}
+
+/* Fortschrittsbalken */
+.progress-bar-container {
+    width: 100%;
+    max-width: 500px;
+    height: 5px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 10px auto 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #5C835C;
+    width: 33%; /* Initialer Wert, 1 von 3 Bildern sichtbar */
+    transition: width 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+/* Persönlicher Abschnitt */
+.about-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.about-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    font-size: 1em;
+    max-width: 400px;
+    margin: 0 auto 10px;
+}
+
+/* Newsletter */
+.newsletter-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.newsletter-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter-section label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.newsletter-section input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.newsletter-section button {
+    margin-top: 15px;
+    padding: 10px 20px;
+}

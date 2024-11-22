@@ -5,9 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plastic Free</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
+    <!-- Header-Bereich -->
+    <header>
+        <!-- Logo in der Mitte -->
+        <div class="logo">
+            <img src="./Images/Logo.png" alt="Plastic Free Logo">
+        </div>
+        
+        <!-- Burger-Menü rechts -->
+        <div class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+
+
+    <main>
+        <!-- Letzter neuer Beitrag mit Bild und Button -->
+        <section class="image-section">
+            <div class="image-container">
+                <img src="Images/Neuester Beitrag.jpg" alt="10 Tipps für ein plastikfreieres Leben" class="responsive-image">
+                <div class="new-badge">NEW</div>
+            </div>
+        </section>
+        
+        <!-- Text und Button zum letzten Beitrag -->
+        <section class="content-section">
+            <h1>Willst auch du weniger Plastik in deinem Alltag verbrauchen? <br>Hier sind 10 Tipps für dich!</h1>
+        </section>
     
+        <section class="call-to-action">
+            <a href="#tipps" class="cta-button">JETZT LESEN</a>
+        </section>   
+    </main>
+    
+
+    <section class="slider-section">
+        <h2>Swipe left für noch mehr Tipps!</h2>
+        <div class="slider-container">
+            <!-- Slider Wrapper -->
+            <div class="slider">
+                <div class="slider-item">
+                    <img src="Images/Plastikfrei einkaufen.jpg" alt="Beitrag 1">
+                </div>
+                <div class="slider-item">
+                    <img src="Images/Plastikflaschen.jpg" alt="Beitrag 2">
+                </div>
+                <div class="slider-item">
+                    <img src="Images/Badezimmer.jpeg" alt="Beitrag 3">
+                </div>
+                <div class="slider-item">
+                    <img src="Images/Beitrag4.jpg" alt="Beitrag 4">
+                </div>
+            </div>
+        </div>
+    
+    
+            <!-- Fortschrittsbalken -->
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+        </section>
+        
+        
+        <!-- Persönlicher Abschnitt -->
+        <section class="about-section">
+            <h2>Ich bin Eva</h2>
+            <p>Mein Ziel ist es, unseren Alltag plastikfreier zu gestalten – Schritt für Schritt und ohne Druck.</p>
+            <a href="#ueber-mich" class="cta-button">Mein Nachhaltigkeitsblog</a>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter-section">
+            <h3>Bleib auf dem Laufenden</h3>
+            <p>Abonniere meinen kostenlosen Newsletter und verpasse keine Tipps rund ums plastikfreie Leben!</p>
+            <form action="#">
+                <label for="vorname">Vorname:</label>
+                <input type="text" id="vorname" name="vorname" required>
+                <label for="email">E-Mail Adresse:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit" class="cta-button">Anmelden</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
