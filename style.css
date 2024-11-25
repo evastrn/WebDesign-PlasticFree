@@ -34,6 +34,9 @@ header {
     border-radius: 50px; /* Abgerundete Kanten */
 }
 
+
+
+
 /* Styling für den Main-Bereich */
 main {
     display: flex;
@@ -83,29 +86,31 @@ main {
 }
 
 
-
 /* Inhalt unter dem Bild */
 .content-section {
     text-align: center;
-    padding: 10px;
+    padding: 1%;
 }
 
 .content-section h1 {
     font-family: 'Montserrat', sans-serif; 
     font-size: 1.5em;
     color: #000000;
-    max-width: 400px;
+    max-width: 600px;
+    margin: 0 auto; /* Zentriert den Text */
+    line-height: 1.6; /* Optimale Lesbarkeit durch Zeilenhöhe */
 }
 
 /* Call-to-Action Styling */
 .call-to-action {
-    margin-top: 20px;
+    margin-top: 10px; /* Reduzierter Abstand zwischen Text und Button */
     text-align: center;
 }
 
 .cta-button {
     display: inline-block;
     padding: 10px 20px;
+    margin-top: 10px;
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     border-radius: 30px;
@@ -127,6 +132,10 @@ main {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Tieferer Schlagschatten beim Hover */
 }
 
+
+
+
+
 /* Slider Section */
 .slider-section {
     text-align: center;
@@ -137,89 +146,162 @@ main {
 .slider-section h2 {
     color: #5C835C;
     font-size: 1.5em;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Vergrößerter Abstand zwischen Überschrift und Slider-Bildern */
 }
 
 /* Slider Container */
 .slider-container {
     position: relative;
-    overflow: hidden; /* Überschüssige Inhalte außerhalb des Containers ausblenden */
+    overflow: hidden; /* Überschüssige Inhalte ausblenden */
     width: 100%;
-    max-width: 800px; /* Optional: Begrenzung der Breite für größere Bildschirme */
-    margin: 0 auto;
+    max-width: 800px; /* Maximale Breite des Sliders */
+    margin: 0 auto; /* Zentrierung */
 }
 
 /* Slider Wrapper */
 .slider {
     display: flex;
-    transition: transform 0.3s ease-in-out; /* Sanfter Übergang beim Swipen */
-    gap: 15px; /* Abstand zwischen den Bildern */
+    transition: transform 0.3s ease-in-out; /* Sanfterer Übergang beim Scrollen */
+    gap: 20px; /* Abstand zwischen den Bildern */
 }
 
 /* Slider Items */
 .slider-item {
     flex: 0 0 auto; /* Kein automatisches Vergrößern */
-    width: 240px; /* Breitere Bilder */
-    height: 300px; /* Höhe passend zum 4:5-Format */
-    overflow: hidden; /* Überstehende Bildteile ausblenden */
+    width: 200px; /* Breite eines Bildes */
+    height: auto; /* Höhe flexibel */
+    text-align: center; /* Überschrift zentrieren */
+    overflow: hidden; /* Überstehende Teile ausblenden */
     border-radius: 10px; /* Runde Ecken */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Schatten */
+    margin-bottom: 15px; /* Abstand zwischen Bildern und Fortschrittsbalken */
 }
 
-/* Bilder innerhalb der Slider Items */
+/* Bilder */
 .slider-item img {
     width: 100%; /* Bild füllt die Breite des Containers */
-    height: 100%; /* Bild füllt die Höhe des Containers */
-    object-fit: cover; /* Schneidet das Bild zu, um das 4:5-Verhältnis zu wahren */
-    border-radius: 10px; /* Runde Ecken des Bildes */
+    height: 200px; /* Festgelegte Höhe für das Bild */
+    object-fit: cover; /* Zuschnitt im 4:5-Format */
+    border-radius: 15px; /* Runde Ecken des Bildes */
+}
+
+/* Überschriften (Slider Caption) */
+.slider-caption {
+    margin-top: 15px; /* Deutlicher Abstand zwischen Bild und Text */
+    font-family: 'Montserrat', sans-serif; /* Einheitliche Schriftart */
+    font-size: 0.9em; /* Schriftgröße */
+    color: black; /* Textfarbe */
+    max-width: 200px; /* Begrenzung der Breite */
+    margin: 10px auto 0; /* Zentrierung der Überschrift */
+    line-height: 1.4; /* Angenehme Zeilenhöhe */
+    text-align: center; /* Zentrierte Ausrichtung */
+    background: none; /* Entfernt eventuelle Hintergründe */
+    border: none; /* Entfernt eventuelle Rahmen */
+    box-shadow: none; /* Entfernt jegliche Schatten */
+    padding: 0; /* Keine zusätzlichen Abstände */
 }
 
 
-.arrow-right span {
-    font-size: 1.5em;
-    color: #5C835C;
-}
 
 /* Fortschrittsbalken */
 .progress-bar-container {
-    width: 100%;
-    max-width: 500px;
-    height: 5px;
-    background-color: #e0e0e0;
-    border-radius: 3px;
-    overflow: hidden;
-    margin: 10px auto 0;
+    width: 100%; /* Vollständige Breite des Containers */
+    max-width: 800px; /* Gleiche maximale Breite wie der Slider */
+    margin: 10px auto; /* Zentrierung und Abstand zum Slider */
+    height: 5px; /* Höhe des Fortschrittsbalkens */
+    background-color: #e0e0e0; /* Hellgrauer Hintergrund */
+    border-radius: 3px; /* Runde Ecken */
+    overflow: hidden; /* Begrenzung des Balkens */
 }
 
 .progress-bar {
-    height: 100%;
-    background-color: #5C835C;
-    width: 33%; /* Initialer Wert, 1 von 3 Bildern sichtbar */
-    transition: width 0.3s ease-in-out;
+    height: 100%; /* Füllt die volle Höhe aus */
+    background-color: #5C835C; /* Grüne Farbe des Fortschritts */
+    width: 0%; /* Anfangswert */
+    transition: width 0.3s ease-in-out; /* Sanfter Übergang */
+}
+
+/* Pfeil - Arrow Container */
+.arrow-container {
+    position: absolute; /* Positioniert den Pfeil relativ zum Slider-Container */
+    top: 40%; /* Zentriert den Pfeil vertikal */
+    transform: translateY(-50%); /* Exakte vertikale Zentrierung */
+    right: 80px; /* Positioniert den Pfeil außerhalb des letzten Bildes */
+    display: none; /* Standardmäßig versteckt */
+}
+
+.arrow-container.visible {
+    display: flex; /* Zeigt den Pfeil an */
+}
+
+.arrow-right {
+    display: inline-block;
+    width: 50px; /* Breite des Pfeils */
+    height: 50px; /* Höhe des Pfeils */
+    background-color: #5C835C; /* Grüner Hintergrund */
+    border-radius: 50%; /* Runde Form */
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+    transition: transform 0.3s ease; /* Animation beim Hover */
+}
+
+.arrow-right img {
+    width: 20px; /* Pfeilgröße */
+    height: 20px;
+}
+
+.arrow-right:hover {
+    transform: scale(1.1); /* Vergrößert den Pfeil beim Hover leicht */
+    background-color: #4a6a4a; /* Dunkleres Grün */
 }
 
 
 
 
 
-
-
-/* Persönlicher Abschnitt */
+/* Styling für den Persönlichen Abschnitt */
 .about-section {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 20px; /* Innerer Abstand für kleinere Bildschirme */
 }
 
-.about-section h2 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
+/* Begrenzung des Textbereichs */
+.about-section h2,
+.about-section p {
+    max-width: 600px; /* Maximale Breite des Textes */
+    margin: 0 auto; /* Zentriert den Text innerhalb der max. Breite */
+    line-height: 1.6; /* Erhöht die Lesbarkeit durch Zeilenabstand */
 }
 
 .about-section p {
-    font-size: 1em;
-    max-width: 400px;
-    margin: 0 auto 10px;
+    font-size: 1em; /* Schriftgröße für den Fließtext */
 }
+
+/* Abstand zwischen Text und Button */
+.about-section .cta-button {
+    margin-top: 20px; /* Abstand zwischen dem Button und dem Text */
+}
+
+
+/* Container für das Bild */
+.about-image-container {
+    margin-bottom: 20px; /* Abstand zwischen Bild und Text */
+}
+
+/* Das Bild */
+.about-image {
+    width: 500px; /* Breite des Bildes */
+    height: 500px; /* Höhe des Bildes */
+    object-fit: cover; /* Bild füllt den Container ohne Verzerrung */
+    border-radius: 100%; /* Runde Form */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Schatten */
+}
+
 
 /* Newsletter */
 .newsletter-section {
