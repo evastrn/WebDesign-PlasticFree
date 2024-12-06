@@ -1,110 +1,109 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const slider = document.querySelector(".slider");
-    const progressBar = document.querySelector(".progress-bar");
-    const sliderItems = document.querySelectorAll(".slider-item");
-    const arrowContainer = document.querySelector(".arrow-container");
+    const sliders = document.querySelectorAll(".slider");
+    const progressBars = document.querySelectorAll(".progress-bar");
+    const buttonContainers = document.querySelectorAll(".button-container");
 
-    let currentIndex = 0;
-    let isDragging = false;
-    let startX = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let animationID;
+    sliders.forEach((slider, index) => {
+        const progressBar = progressBars[index];
+        const buttonContainer = buttonContainers[index];
 
-    const maxIndex = 6; // Slider endet nach dem 7. Bild (Index beginnt bei 0)
+        let isDragging = false;
+        let startX = 0;
+        let scrollLeft = 0;
 
-    // Aktualisiert den Slider und den Fortschrittsbalken
-    const updateSlider = () => {
-        const translateValue = -currentIndex * sliderItems[0].offsetWidth; // Pixelbasierte Verschiebung
-        slider.style.transform = `translateX(${translateValue}px)`;
-        const progressValue = ((currentIndex + 1) / (maxIndex + 1)) * 100; // Fortschrittsbalken aktualisieren
-        progressBar.style.width = `${progressValue}%`;
+        const calculateMaxScrollLeft = () => slider.scrollWidth - slider.clientWidth;
 
-        // Pfeil anzeigen/verstecken
-        if (currentIndex === maxIndex) {
-            arrowContainer.classList.add("visible"); // Pfeil anzeigen
-        } else {
-            arrowContainer.classList.remove("visible"); // Pfeil verstecken
-        }
-    };
+        const initializeProgressBar = () => {
+            const maxScrollLeft = calculateMaxScrollLeft();
+            const initialProgressValue = 10; // Fortschrittsbalken startet bei 10%
+            const initialWidth = (initialProgressValue / 100) * maxScrollLeft;
+            progressBar.style.width = `${initialProgressValue}%`; // Sichtbarer Startwert
+        };
 
-    // Verschiebt den Slider während des Dragging
-    const setSliderPosition = () => {
-        slider.style.transform = `translateX(${currentTranslate}px)`;
-    };
+        const updateProgressBar = () => {
+            const maxScrollLeft = calculateMaxScrollLeft();
+            const scrollPosition = slider.scrollLeft;
+            const progressValue = ((scrollPosition + 0.1 * maxScrollLeft) / maxScrollLeft) * 100; // Startwert von 10%
+            progressBar.style.width = `${progressValue}%`;
 
-    // Beendet das Dragging
-    const handleDragEnd = () => {
-        cancelAnimationFrame(animationID);
-        isDragging = false;
+            if (Math.ceil(scrollPosition) >= maxScrollLeft - 5) {
+                buttonContainer.classList.add("visible");
+            } else {
+                buttonContainer.classList.remove("visible");
+            }
+        };
 
-        const movedBy = currentTranslate - prevTranslate;
+        const startDragging = (e) => {
+            isDragging = true;
+            startX = e.pageX || e.touches[0].pageX;
+            scrollLeft = slider.scrollLeft;
+            slider.style.cursor = "grabbing";
+        };
 
-        // Logik für das Verschieben
-        if (movedBy < -50 && currentIndex < maxIndex) {
-            currentIndex++;
-        } else if (movedBy > 50 && currentIndex > 0) {
-            currentIndex--;
-        }
+        const dragSlider = (e) => {
+            if (!isDragging) return;
+            const x = e.pageX || e.touches[0].pageX;
+            const distance = x - startX;
+            slider.scrollLeft = scrollLeft - distance;
+            updateProgressBar();
+        };
 
-        updateSlider(); // Position aktualisieren
-    };
+        const stopDragging = () => {
+            isDragging = false;
+            slider.style.cursor = "grab";
+        };
 
-    const animation = () => {
-        if (isDragging) {
-            requestAnimationFrame(animation);
-            setSliderPosition();
-        }
-    };
+        slider.addEventListener("scroll", updateProgressBar);
 
-    const startDragging = (position) => {
-        isDragging = true;
-        startX = position;
-        prevTranslate = -currentIndex * sliderItems[0].offsetWidth; // Nutzt die Breite eines Slider-Items
-        currentTranslate = prevTranslate;
-        animationID = requestAnimationFrame(animation);
-    };
+        slider.addEventListener("mousedown", startDragging);
+        slider.addEventListener("mousemove", dragSlider);
+        slider.addEventListener("mouseup", stopDragging);
+        slider.addEventListener("mouseleave", stopDragging);
 
-    // Handhabung von Maus-Events
-    slider.addEventListener("mousedown", (event) => {
-        slider.style.cursor = "grabbing";
-        startDragging(event.clientX);
+        slider.addEventListener("touchstart", startDragging);
+        slider.addEventListener("touchmove", dragSlider);
+        slider.addEventListener("touchend", stopDragging);
+
+        window.addEventListener("resize", () => {
+            updateProgressBar();
+        });
+
+        initializeProgressBar();
+        updateProgressBar();
     });
-
-    slider.addEventListener("mousemove", (event) => {
-        if (isDragging) {
-            const deltaX = event.clientX - startX;
-            currentTranslate = prevTranslate + deltaX;
-        }
-    });
-
-    slider.addEventListener("mouseup", () => {
-        slider.style.cursor = "grab";
-        handleDragEnd();
-    });
-
-    slider.addEventListener("mouseleave", () => {
-        if (isDragging) handleDragEnd();
-    });
-
-    // Handhabung von Touch-Events
-    slider.addEventListener("touchstart", (event) => {
-        startDragging(event.touches[0].clientX);
-    });
-
-    slider.addEventListener("touchmove", (event) => {
-        if (isDragging) {
-            const deltaX = event.touches[0].clientX - startX;
-            currentTranslate = prevTranslate + deltaX;
-        }
-    });
-
-    slider.addEventListener("touchend", () => {
-        handleDragEnd();
-    });
-
-    // Initialisierung
-    updateSlider();
 });
 
 
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const burgerMenu = document.querySelector(".burger-menu");
+    const sideMenu = document.querySelector(".side-menu");
+
+    // Toggle-Funktion für das Side-Menü
+    burgerMenu.addEventListener("click", () => {
+        sideMenu.classList.toggle("visible"); // Klasse 'visible' umschalten
+    });
+
+    // Optional: Menü schließen, wenn außerhalb geklickt wird
+    document.addEventListener("click", (e) => {
+        if (!sideMenu.contains(e.target) && !burgerMenu.contains(e.target)) {
+            sideMenu.classList.remove("visible");
+        }
+    });
+});
+
+
+
+
+
+document.querySelectorAll('.menu-plus').forEach((plus) => {
+    plus.addEventListener('click', () => {
+        // Hier kannst du Untermenüs öffnen oder Aktionen definieren
+        alert('Funktion für das Untermenü folgen!');
+    });
+});
