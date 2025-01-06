@@ -1,0 +1,120 @@
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    height: 60px;
+}
+
+/* Logo zentrieren */
+.logo {
+    margin: 0 auto;  /* Zentriert das Logo horizontal */
+    text-align: center;  /* Stellt sicher, dass das Logo auch innerhalb des Containers zentriert wird */
+}
+
+/* Bildgröße und Stil für das Logo */
+.logo img {
+    height: 60px;  /* Bildhöhe nach Wunsch */
+    width: auto;   /* Breite wird automatisch angepasst, um das Seitenverhältnis zu bewahren */
+    cursor: pointer;  /* Zeigt den Hand-Cursor, wenn man über das Logo fährt */
+}
+
+
+
+
+
+
+
+
+
+/* Allgemeine Stile */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Heller Hintergrund für angenehme Lesbarkeit */
+    color: #333; /* Dunkle, gut lesbare Schriftfarbe */
+    line-height: 1.6;
+}
+
+/* Blog-Post Container */
+.blog-post {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff; /* Weißer Hintergrund für den Inhalt */
+    border-radius: 10px; /* Abgerundete Ecken */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Dezenter Schatten */
+    overflow: hidden;
+    padding: 2rem;
+}
+
+/* Titel */
+.blog-title {
+    font-size: 20px; /* Große Schriftgröße für den Titel */
+    color: #222; /* Betonung durch etwas dunklere Farbe */
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Blog-Bild */
+.blog-image {
+    width: 100%; /* Bild nimmt die volle Breite ein */
+    height: auto;
+    border-radius: 10px; /* Gleiche Rundung wie der Container */
+    margin-bottom: 1.5rem;
+}
+
+/* Text */
+.blog-text {
+    font-size: 1rem;
+    color: #555; /* Leicht abgeschwächte Textfarbe */
+    margin-bottom: 2rem;
+}
+
+/* Blog-Aktionen */
+.blog-actions {
+    display: flex;
+    justify-content: space-around; /* Gleichmäßige Verteilung der Icons */
+    align-items: center;
+    border-top: 1px solid #eee; /* Dezente Trennlinie */
+    padding-top: 1rem;
+}
+
+/* Icons */
+.icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #888; /* Neutrale Icon-Farbe */
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.icon span {
+    margin-left: 0.5rem;
+}
+
+.icon:hover {
+    color: #007BFF; /* Farbe bei Hover für Interaktivität */
+}
+
+/* Responsives Design */
+@media (max-width: 600px) {
+    .blog-post {
+        padding: 1rem;
+    }
+
+    .blog-title {
+        font-size: 1.5rem;
+    }
+
+    .blog-text {
+        font-size: 0.9rem;
+    }
+
+    .icon {
+        font-size: 0.9rem;
+    }
+}
