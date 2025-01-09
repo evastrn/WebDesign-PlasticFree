@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const sliders = document.querySelectorAll(".slider");
     const progressBars = document.querySelectorAll(".progress-bar");
-    const buttonContainers = document.querySelectorAll(".button-container");
+    const buttonContainers = document.querySelectorAll(".category-button-container");
 
     sliders.forEach((slider, index) => {
         const progressBar = progressBars[index];
@@ -10,13 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
         let isDragging = false;
         let startX = 0;
         let scrollLeft = 0;
+        let lastScroll = 0;
 
         const calculateMaxScrollLeft = () => slider.scrollWidth - slider.clientWidth;
+        const calculateSlideWidth = () => slider.querySelector('.slider-item').offsetWidth;  // Breite eines Slides
 
         const initializeProgressBar = () => {
             const maxScrollLeft = calculateMaxScrollLeft();
             const initialProgressValue = 10; // Fortschrittsbalken startet bei 10%
-            const initialWidth = (initialProgressValue / 100) * maxScrollLeft;
             progressBar.style.width = `${initialProgressValue}%`; // Sichtbarer Startwert
         };
 
@@ -26,7 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const progressValue = ((scrollPosition + 0.1 * maxScrollLeft) / maxScrollLeft) * 100; // Startwert von 10%
             progressBar.style.width = `${progressValue}%`;
 
-            if (Math.ceil(scrollPosition) >= maxScrollLeft - 5) {
+            const slideWidth = calculateSlideWidth();
+            
+            // Ab dem 2. Slide Button anzeigen
+            if (scrollPosition >= slideWidth * 1) {  // Ab dem 2. Slide Button anzeigen
                 buttonContainer.classList.add("visible");
             } else {
                 buttonContainer.classList.remove("visible");
@@ -53,7 +57,17 @@ document.addEventListener("DOMContentLoaded", () => {
             slider.style.cursor = "grab";
         };
 
-        slider.addEventListener("scroll", updateProgressBar);
+        // Animation mit requestAnimationFrame für flüssigeres Scrollen
+        const smoothScroll = () => {
+            const scrollPosition = slider.scrollLeft;
+            if (Math.abs(scrollPosition - lastScroll) > 0.5) {
+                lastScroll = scrollPosition;
+                updateProgressBar();
+                requestAnimationFrame(smoothScroll);  // Animation aufrufen
+            }
+        };
+
+        slider.addEventListener("scroll", smoothScroll); // Anstelle von 'updateProgressBar()' verwenden
 
         slider.addEventListener("mousedown", startDragging);
         slider.addEventListener("mousemove", dragSlider);
@@ -73,13 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const burgerMenu = document.querySelector(".burger-menu");
     const sideMenu = document.querySelector(".side-menu");
@@ -97,13 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-
-
-
 document.querySelectorAll('.menu-plus').forEach((plus) => {
     plus.addEventListener('click', () => {
         // Hier kannst du Untermenüs öffnen oder Aktionen definieren
-        alert('Funktion für das Untermenü folgen!');
+        alert('Weitere Auswahlfunktionen werden noch programmiert!');
     });
 });

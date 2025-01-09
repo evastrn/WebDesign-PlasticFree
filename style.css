@@ -1,146 +1,4 @@
-/* Header Styling */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    position: relative;
-    height: 60px;
-}
-
-/* Logo zentrieren */
-.logo {
-    margin: 0 auto;
-}
-
-.logo img {
-    height: 60px;
-    width: auto;
-}
-
-
-
-
-
-
-
-/* Side Menu Styling */
-.side-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100vh;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-}
-
-/* Menü sichtbar */
-.side-menu.visible {
-    transform: translateX(0);
-}
-
-.side-menu-logo {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.side-menu-logo img {
-    max-width: 80px;
-    height: auto;
-}
-
-/* Menü-Links */
-.side-menu-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1; /* Platz zwischen Logo und Social Media */
-}
-
-.side-menu-links li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd; /* Trennlinien */
-    padding: 15px 0;
-}
-
-.side-menu-links li a {
-    text-decoration: none;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #000;
-}
-
-.side-menu-links .menu-plus {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #000;
-    cursor: pointer;
-}
-
-/* Social Media Icons */
-.side-menu-socials {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-
-.side-menu-socials a img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-}
-
-.side-menu-socials a img:hover {
-    transform: scale(1.1);
-}
-
-/* Burger-Menü Icon Styling */
-.burger-menu {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    z-index: 1100; /* Über dem Side-Menu */
-}
-
-.burger-menu span {
-    display: block;
-    height: 4px;
-    width: 35px;
-    background-color: #6F6F6F;
-    margin: 3px 0;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-}
-
-/* Body fix für horizontales Scrollen */
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Keine horizontale Scrollleiste */
-}
-
-
-
-
-
-
-
-
-
-
-/* Styling für den Main-Bereich */
+/* Main Styling */
 main {
     display: flex;
     flex-direction: column;
@@ -148,60 +6,446 @@ main {
     padding: 20px;
 }
 
-/* Container für das Bild */
-.image-container {
-    position: relative; /* Damit der Button sich relativ zum Container positioniert */
-    display: inline-block;
+/* Wrapper für Bild und Text */
+.image-content-wrapper {
+    display: flex;
+    flex-direction: column; /* Vertikale Anordnung für Mobile */
+    align-items: center;
+    gap: 30px; /* Abstand zwischen Bild und Textbereich */
     width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px; /* Optional: Abstand nach unten */
+    max-width: 1200px; /* Maximale Breite für den gesamten Bereich */
+    margin-bottom: 40px; /* Mehr Abstand unter dem gesamten Bereich */
+}
+
+/* Bild-Wrapper */
+.image-wrapper {
+    display: flex;
+    justify-content: center; /* Zentriert das Bild horizontal */
+    width: 100%;
 }
 
 /* Das Bild */
 .responsive-image {
-    width: 100%;
-    max-width: 500px;
-    height: 600px; /* Festgelegte Höhe für das Bild */
-    object-fit: cover; /* Füllt den Container aus, ohne das Seitenverhältnis zu verzerren */
+    width: 300px; /* Standardgröße für Mobile */
+    height: auto;
+    object-fit: cover;
     border-radius: 40px; /* Runde Ecken */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionaler Schatten */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Der runde Button */
-.new-badge {
-    position: absolute; /* Absolut positioniert relativ zum Container */
-    top: -35px; /* Abstand vom oberen Rand des Bildes */
-    right: 50px; /* Abstand vom rechten Rand des Bildes */
-    background-color: #5C835C; /* Grüner Hintergrund */
-    color: white; /* Weißer Text */
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em; /* Schriftgröße */
-    font-weight: bold; /* Fettschrift */
-    text-align: center; /* Zentriert den Text */
-    width: 70px; /* Breite des Buttons */
-    height: 70px; /* Höhe des Buttons */
-    border-radius: 50%; /* Macht den Button rund */
-    display: flex; /* Zentrierung von Inhalt */
-    justify-content: center; /* Horizontale Zentrierung */
-    align-items: center; /* Vertikale Zentrierung */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Schatten für den Button */
-    z-index: 10; /* Stellt sicher, dass der Button über dem Bild liegt */
+.image-container:hover .responsive-image {
+    transform: scale(1.05); /* Leichtes Zoomen beim Hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Text-Wrapper */
+.text-wrapper {
+    max-width: 600px; /* Begrenzte Breite für bessere Lesbarkeit */
+    text-align: center;
+    padding: 20px; /* Innenabstand für mehr Raum rund um den Text */
+    line-height: 1.8; /* Erhöhte Zeilenhöhe für bessere Lesbarkeit */
+}
 
 /* Inhalt unter dem Bild */
-.content-section {
-    text-align: center;
-    padding: 1%;
-}
-
 .content-section h1 {
     font-family: 'Open Sans', sans-serif; 
     font-size: 1.5em;
     color: #000000;
-    max-width: 600px;
-    margin: 0 auto; /* Zentriert den Text */
-    line-height: 1.6; /* Optimale Lesbarkeit durch Zeilenhöhe */
+    margin: 0 auto; /* Text mittig ausrichten */
+    line-height: 1.6;
+}
+
+/* Call-to-Action Styling */
+.call-to-action {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Layout für Tablet und Laptop */
+@media (min-width: 769px) {
+    .image-content-wrapper {
+        flex-direction: row; /* Horizontale Anordnung */
+        justify-content: center; /* Zentriert den Bereich */
+        gap: 50px; /* Abstand zwischen Bild und Text */
+        margin-left: 50px;
+    }
+
+    .image-wrapper {
+        width: 50%; /* Bild nimmt 50% der Breite ein */
+    }
+
+    .responsive-image {
+        width: 400px; /* Größeres Bild für Tablet */
+        height: auto;
+    }
+
+    .text-wrapper {
+        width: 50%; /* Text nimmt 50% der Breite ein */
+        padding: 40px; /* Mehr Innenabstand für Tablet/Desktop */
+        text-align: center; /* Text bleibt zentriert */
+    }
+}
+
+/* Nur für größere Bildschirme (Laptop und größer) */
+@media (min-width: 1200px) {
+    .responsive-image {
+        width: 500px; /* Größtes Bild für Laptop/Desktop */
+        height: auto;
+    }
+
+    .text-wrapper {
+        padding: 50px; /* Zusätzlicher Innenabstand */
+    }
+}
+
+
+
+
+
+
+/* Slider Section */
+.slider-section {
+    text-align: center;
+    margin: 80px auto;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0 20px; /* Zusätzlicher Abstand links und rechts */
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory; /* Aktiviert Snap-Verhalten */
+}
+
+/* Vermeide Übergänge auf das Scrollen */
+.slider {
+    display: flex;
+    gap: 20px; /* Abstand zwischen den Slider-Items */
+    overflow-x: auto; /* Ermöglicht horizontales Scrollen */
+    scroll-behavior: smooth; /* Sanftes Scrollen */
+    padding: 10px 0; /* Vertikaler Abstand innerhalb des Sliders */
+    transition: none; /* Keine Übergangseffekte für das Scrollen */
+}
+/* Vermeide Verzögerung bei den Bildern */
+.slider-item img {
+    transition: transform 0s ease; /* Keine Verzögerung für das Bild */
+    will-change: transform; /* Optimierung für bewegte Bilder */
+}
+
+.slider::-webkit-scrollbar {
+    display: none; /* Versteckt den Scrollbar */
+}
+
+/* Slider Items */
+.slider-item {
+    flex: 0 0 250px; /* Breite der Slider-Items */
+    text-align: center; /* Text zentrieren */
+    border-radius: 10px; /* Runde Ecken */
+    overflow: hidden; /* Überstehende Inhalte ausblenden */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+}
+
+/* Bilder */
+.slider-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Zuschneiden des Bildes, ohne Verzerrung */
+    border-radius: 10px; /* Runde Ecken des Bildes */
+}
+
+/* Slider-Bild-Beschriftungen */
+.slider-caption {
+    margin-top: 10px; /* Abstand zwischen Bild und Text */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em; /* Schriftgröße */
+    color: #333; /* Textfarbe */
+    line-height: 1.5; /* Angenehme Zeilenhöhe */
+    max-width: 230px; /* Maximale Breite der Beschriftung */
+    margin: 10px auto 20px; /* Zentriert den Text */
+    text-align: center; /* Textausrichtung */
+}
+
+/* Fortschrittsbalken */
+.progress-bar-container {
+    width: 100%; /* Anpassung an den Container */
+    max-width: 900px; /* Maximale Breite */
+    margin: 10px auto; /* Zentrierung */
+    margin-top: 40px;
+    height: 5px; /* Höhe des Fortschrittsbalkens */
+    background-color: #e0e0e0; /* Hellgrauer Hintergrund */
+    border-radius: 3px; /* Runde Ecken */
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #5C835C; /* Grüne Farbe */
+    width: 10%; /* Startwert bei 10% */
+    transition: width 0.3s ease-in-out;
+}
+
+/* Button Container ohne weißen Hintergrund */
+.category-button-container {
+    text-align: center; /* Zentriert den Button horizontal */
+    margin-top: 50px; /* Abstand zum Slider */
+    display: none; /* Standardmäßig unsichtbar */
+}
+
+/* Button sichtbar machen */
+.category-button-container.visible {
+    display: block; /* Button wird sichtbar */
+}
+
+/* Button Styling */
+.category-button {
+    display: inline-block;
+    padding: 10px 20px; /* Innenabstand des Buttons */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em; /* Schriftgröße */
+    font-weight: bold; /* Fettschrift */
+    text-transform: uppercase; /* Text in Großbuchstaben */
+    color: white; /* Textfarbe */
+    background-color: #5C835C; /* Grüner Hintergrund */
+    border: none; /* Kein Rahmen */
+    border-radius: 25px; /* Runde Ecken */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+    text-decoration: none; /* Entfernt Unterstreichung */
+    cursor: pointer; /* Zeigt eine Hand beim Hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animationen */
+}
+
+.category-button:hover {
+    transform: scale(1.1); /* Vergrößerung beim Hover */
+    background-color: #4A6A4A; /* Dunkleres Grün beim Hover */
+    transform: scale(1.05); /* Leichte Vergrößerung */
+}
+
+/* Mobile Ansicht (Standard) */
+.slider-section {
+    text-align: center;
+    margin: 40px auto;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0 10px;
+}
+
+/* Mobile: Slider Items */
+.slider-item {
+    flex: 0 0 80%; /* Breite der Slider-Items bei kleinen Bildschirmen */
+    max-width: 300px; /* Begrenzung der maximalen Breite */
+}
+
+/* Tablet-Ansicht */
+@media (min-width: 600px) {
+    .slider-container {
+        max-width: 700px; /* Breitere Ansicht für Tablet */
+    }
+
+    .slider-item {
+        flex: 0 0 40%; /* Slider-Items werden größer */
+    }
+
+    .slider-caption {
+        font-size: 1.1em; /* Größere Schriftgröße */
+        max-width: 300px; /* Maximale Breite anpassen */
+    }
+}
+
+/* Laptop- und Desktop-Ansicht */
+@media (min-width: 1024px) {
+    .slider-container {
+        max-width: 1000px; /* Noch breiterer Container */
+        padding-bottom: 40px; /* Zusätzlicher Platz für größere Slider */
+    }
+
+    .slider-item {
+        flex: 0 0 30%; /* Mehr Slider-Items sichtbar */
+    }
+
+    .slider-caption {
+        font-size: 1.2em; /* Noch größere Schriftgröße */
+        max-width: 320px;
+    }
+
+    .progress-bar-container {
+        max-width: 1000px; /* Fortschrittsbalken breiter */
+    }
+
+    .category-button-container {
+        margin-top: 60px; /* Mehr Abstand zum Slider */
+    }
+}
+
+/* Großer Bildschirm (ab 1400px) */
+@media (min-width: 1400px) {
+    .slider-container {
+        max-width: 1200px; /* Noch breiter für große Bildschirme */
+    }
+
+    .slider-item {
+        flex: 0 0 25%; /* Mehr Platz für Slider-Items */
+    }
+
+    .slider-caption {
+        font-size: 1.3em; /* Optimierung für größere Bildschirme */
+    }
+}
+
+
+
+
+
+/* Persönlicher Abschnitt */
+.about-section {
+    margin-top: 50px; /* Abstand über der Sektion */
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px; /* Innenabstand zu den Rändern */
+}
+
+/* Wrapper für Bild und Text */
+.about-wrapper {
+    display: flex;
+    flex-direction: column; /* Vertikale Anordnung für Mobile */
+    align-items: center;
+    text-align: center;
+    gap: 30px; /* Abstand zwischen Bild und Textbereich */
+}
+
+/* Container für das Bild */
+.about-image-container {
+    margin-bottom: 0; /* Kein zusätzlicher Abstand, da "gap" verwendet wird */
+
+}
+
+/* Das Bild */
+.about-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Begrenzung des Textbereichs */
+.about-content {
+    max-width: 600px; /* Textinhalt nicht über diese Breite hinaus anzeigen */
+    padding: 20px; /* Innenabstand für mehr Raum rund um den Text */
+    margin: 0 auto; /* Zentrierung */
+    line-height: 1.8; /* Erhöhte Zeilenhöhe für bessere Lesbarkeit */
+}
+
+/* Abstand zwischen den Text-Elementen */
+.about-content h2 {
+    margin-bottom: 20px; /* Abstand unter der Überschrift */
+}
+
+.about-content p {
+    font-size: 1.1em;
+    margin-bottom: 30px; /* Abstand zwischen Absatz und Button */
+}
+
+/* Abstand zwischen Button und Rand */
+.about-content .cta-button {
+    margin-top: 30px;
+}
+
+/* Tablet- und Desktop-Ansicht */
+@media (min-width: 769px) {
+    .about-wrapper {
+        flex-direction: row; /* Horizontale Anordnung */
+        justify-content: center; /* Zentriert */
+        align-items: center; /* Vertikal ausgerichtet */
+        gap: 50px; /* Größerer Abstand zwischen Bild und Textbereich */
+    }
+    .about-image-container {
+        margin-left: 40px; /* Abstand für Tablet und Desktop */
+    }
+    .about-image {
+        width: 400px;
+        height: 400px;
+    }
+
+    .about-content {
+        padding: 40px; /* Größerer Innenabstand für Tablet/Desktop */
+    }
+}
+
+
+
+
+
+/* Styling für den Highlight-Bereich */
+.highlight-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Wrapper für Bild und Button */
+.highlight-wrapper {
+    position: relative; /* Container für Bild und Badge */
+    display: inline-block;
+    width: 100%;
+    max-width: 500px; /* Maximale Breite */
+    margin-bottom: 20px;
+}
+
+/* Container für das Bild */
+.highlight-image-container {
+    display: inline-block;
+    width: 100%;
+    height: auto; /* Höhe wird dynamisch angepasst */
+    overflow: hidden;
+    border-radius: 40px;
+    margin-top: 50px;
+    aspect-ratio: 3 / 4; /* Seitenverhältnis für Hochformat */
+}
+
+/* Das Bild */
+.highlight-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Bild füllt den Container proportional */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-Effekt für das Bild */
+.highlight-image-container:hover .highlight-image {
+    transform: scale(1.05); /* Bild zoomt bei Hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Der "WOW"-Badge */
+.highlight-badge {
+    position: absolute;
+    top: 10px; /* Button leicht über dem Container */
+    right: 360px;
+    background-color: #5C835C;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Badge bleibt sichtbar */
+}
+
+/* Hover-Effekt für den Badge */
+.highlight-image-container:hover .highlight-badge {
+    z-index: 3;
+    transform: none;
 }
 
 /* Call-to-Action Styling */
@@ -237,286 +481,14 @@ main {
 
 
 
-
-
-
-
-
-/* Slider Section */
-.slider-section {
-    text-align: center;
-    margin: 80px 0;
-    font-family: 'Open Sans', sans-serif;
-}
-
-/* Überschrift */
-.slider-section h2 {
-    color: #5C835C;
-    font-size: 1.5em;
-    margin-bottom: 30px;
-    line-height: 1.4; /* Angenehme Lesbarkeit */
-}
-
-/* Slider Container */
-.slider-container {
-    position: relative;
-    overflow: hidden; /* Verhindert Überlauf von Slider-Elementen */
-    width: 100%;
-    max-width: 900px; /* Maximale Breite für größere Bildschirme */
-    margin: 0 auto; /* Zentrierung */
-    padding-bottom: 20px; /* Abstand zum Fortschrittsbalken */
-}
-
-/* Slider */
-.slider {
-    display: flex;
-    gap: 20px; /* Abstand zwischen den Slider-Items */
-    overflow-x: auto; /* Ermöglicht horizontales Scrollen */
-    scroll-behavior: smooth; /* Sanftes Scrollen */
-    padding: 10px 0; /* Vertikaler Abstand innerhalb des Sliders */
-}
-
-.slider::-webkit-scrollbar {
-    display: none; /* Versteckt den Scrollbar */
-}
-
-/* Slider Items */
-.slider-item {
-    flex: 0 0 auto; /* Kein automatisches Vergrößern */
-    width: 250px; /* Breite der Bilder */
-    text-align: center; /* Text zentrieren */
-    border-radius: 10px; /* Runde Ecken */
-    overflow: hidden; /* Überstehende Inhalte ausblenden */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
-}
-
-/* Bilder */
-.slider-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover; /* Zuschneiden des Bildes, ohne Verzerrung */
-    border-radius: 10px; /* Runde Ecken des Bildes */
-}
-
-/* Slider-Bild-Beschriftungen */
-.slider-caption {
-    margin-top: 10px; /* Abstand zwischen Bild und Text */
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em; /* Schriftgröße */
-    color: #333; /* Textfarbe */
-    line-height: 1.5; /* Angenehme Zeilenhöhe */
-    max-width: 230px; /* Maximale Breite der Beschriftung */
-    margin: 10px auto 0; /* Zentriert den Text */
-    text-align: center; /* Textausrichtung */
-}
-
-/* Fortschrittsbalken */
-.progress-bar-container {
-    width: 100%;
-    max-width: 900px;
-    margin: 10px auto;
-    height: 5px;
-    background-color: #e0e0e0; /* Hellgrauer Hintergrund */
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background-color: #5C835C; /* Grüne Farbe */
-    width: 10%; /* Startwert bei 10% */
-    transition: width 0.3s ease-in-out;
-}
-
-
-/* Weißer Bereich für Button */
-.button-container {
-    position: relative; /* Position innerhalb des Abschnitts */
-    margin-top: 20px; /* Abstand zum Fortschrittsbalken */
-    text-align: center; /* Zentriert den Button horizontal */
-    height: 80px; /* Weißer Bereich für den Button */
-    display: none; /* Button standardmäßig versteckt */
-    background-color: white; /* Weißer Hintergrund */
-}
-
-.button-container.visible {
-    display: flex; /* Zeigt den Button an */
-    justify-content: center; /* Zentriert horizontal */
-    align-items: center; /* Zentriert vertikal */
-}
-
-/* Button Styling */
-.category-button {
-    display: inline-block;
-    padding: 10px 20px; /* Innenabstand des Buttons */
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em; /* Schriftgröße */
-    font-weight: bold; /* Fettschrift */
-    text-transform: uppercase; /* Text in Großbuchstaben */
-    color: white; /* Textfarbe */
-    background-color: #5C835C; /* Grüner Hintergrund */
-    border: none; /* Kein Rahmen */
-    border-radius: 25px; /* Runde Ecken */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
-    text-decoration: none; /* Entfernt Unterstreichung */
-    cursor: pointer; /* Zeigt eine Hand beim Hover */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Animationen */
-}
-
-.category-button:hover {
-    background-color: #4A6A4A; /* Dunkleres Grün beim Hover */
-    transform: scale(1.05); /* Leichte Vergrößerung */
-}
-
-
-
-
-
-
-
-/* Styling für den Persönlichen Abschnitt */
-.about-section {
-    text-align: center;
-    margin-top: 120px;
-    margin-bottom: 40px;
-    font-family: 'Open Sans', sans-serif;
-    padding: 0 20px; /* Innerer Abstand für kleinere Bildschirme */
-}
-
-/* Begrenzung des Textbereichs */
-.about-section h2,
-.about-section p {
-    max-width: 400px; /* Maximale Breite des Textes */
-    margin: 0 auto; /* Zentriert den Text innerhalb der max. Breite */
-    line-height: 1.6; /* Erhöht die Lesbarkeit durch Zeilenabstand */
-}
-
-.about-section p {
-    font-size: 1em; /* Schriftgröße für den Fließtext */
-}
-
-/* Abstand zwischen Text und Button */
-.about-section .cta-button {
-    margin-top: 20px; /* Abstand zwischen dem Button und dem Text */
-}
-
-
-/* Container für das Bild */
-.about-image-container {
-    margin-bottom: 20px; /* Abstand zwischen Bild und Text */
-}
-
-/* Das Bild */
-.about-image {
-    width: 500px; /* Breite des Bildes */
-    height: 500px; /* Höhe des Bildes */
-    object-fit: cover; /* Bild füllt den Container ohne Verzerrung */
-    border-radius: 100%; /* Runde Form */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Schatten */
-}
-
-
-
-
-
-
-
-/* Highlight Section */
-.highlight-section {
-    text-align: center;
-    padding: 20px;
-    font-family: 'Open Sans', sans-serif;
-    margin: 30px 0;
-}
-
-.highlight-section h2 {
-    color: #5C835C; /* Grüner Farbton */
-    font-size: 1.5em;
-    margin-bottom: 20px; /* Abstand zur Überschrift */
-    line-height: 1.4; /* Angenehme Lesbarkeit */
-}
-
-
-.highlight-image {
-    max-width: 450px;
-    height: 500px;
-    display: block;
-    object-fit: cover; /* Zuschneiden des Bildes */
-    border-radius: 15px; /* Runde Ecken des Bildes */
-}
-
-/* Der runde Button */
-.highlight-badge {
-    position: absolute;
-    top: -15px; /* Halb außerhalb des Bildes platzieren */
-    right: 10px; /* Abstand vom rechten Rand */
-    background-color: #5C835C; /* Grüner Hintergrund */
-    color: white; /* Weißer Text */
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.9em; /* Schriftgröße */
-    font-weight: bold; /* Fettschrift */
-    text-align: center;
-    padding: 10px 15px; /* Innenabstand */
-    border-radius: 50%; /* Runde Form */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
-    z-index: 1; /* Sicherstellen, dass der Badge über dem Bild liegt */
-}
-
-/* Highlight Image Container */
-.highlight-image-container {
-    position: relative; /* Ermöglicht die Positionierung des Badges */
-    display: inline-block;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto; /* Zentrierung */
-    border-radius: 15px; /* Runde Ecken */
-    overflow: visible; /* Überschreitende Elemente sichtbar machen */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
-}
-
-/* Highlight CTA Button */
-.highlight-cta {
-    margin-top: 20px; /* Abstand zum Bild */
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 10px 20px; /* Innenabstand */
-    background-color: #ffffff; /* Weißer Hintergrund */
-    color: rgb(0, 0, 0); /* Schwarzer Text */
-    border-radius: 30px; /* Runde Ecken */
-    border: 2px solid #000000; /* Schwarzer Rahmen */
-    font-size: 1em; /* Schriftgröße */
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold; /* Schriftgewicht */
-    text-transform: uppercase; /* Text in Großbuchstaben */
-    letter-spacing: 1px; /* Buchstabenabstand */
-    text-decoration: none; /* Entfernt Unterstreichung */
-    cursor: pointer;
-    transition: all 0.3s ease; /* Animation */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
-}
-
-.cta-button:hover {
-    background-color: #5C835C; /* Grüner Hintergrund beim Hover */
-    color: #fff; /* Weißer Text beim Hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Tieferer Schatten */
-}
-
-
-
-
-
-
-
-
 /* Interest Section */
 .interest-section {
     text-align: center;
-    padding: 30px 20px;
+    padding: 60px 20px;
     background-color: #EAF3E6; /* Heller Grünton */
     font-family: 'Open Sans', sans-serif;
-    margin-top: 30px; /* Abstand von vorherigen Sektionen */
+    margin-top: 50px; /* Abstand von vorherigen Sektionen */
+    margin-bottom: 20px;
 }
 
 /* Überschrift */
@@ -525,12 +497,13 @@ main {
     font-weight: bold;
     color: #000; /* Schwarzer Text */
     margin-bottom: 20px; /* Abstand zur Eingabe */
+    line-height: 1.5;
 }
 
 /* Eingabefeld */
 .interest-input {
     width: 80%; /* Breite des Eingabefelds */
-    max-width: 400px; /* Maximale Breite */
+    max-width: 300px; /* Maximale Breite */
     padding: 10px 15px; /* Innenabstand */
     font-size: 1em; /* Schriftgröße */
     border: 2px solid #fff; /* Weißer Rahmen */
@@ -545,24 +518,26 @@ main {
 .interest-input:hover,
 .interest-input:focus {
     transform: scale(1.05); /* Vergrößert das Eingabefeld */
-    border-color: #5C835C; /* Grüner Rahmen */
+    border-color: #333; /* Grüner Rahmen */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Stärkerer Schatten */
 }
 
-/* Button */
+/* "Das interessiert mich" Button */
 .submit-button {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
-    font-size: 1em; /* Schriftgröße */
+    font-size: 0.9em; /* Reduzierte Schriftgröße */
     color: #000; /* Schwarzer Text */
     background: none; /* Kein Hintergrund */
     border: none; /* Kein Rahmen */
-    padding: 0; /* Kein Innenabstand */
+    padding: 5px 15px; /* Weniger Innenabstand */
     margin-top: 25px;
     cursor: pointer; /* Zeigt an, dass es anklickbar ist */
     position: relative; /* Für den Unterstrich */
     text-transform: uppercase;
     text-decoration: none; /* Kein Standard-Unterstrich */
+    max-width: 150px; /* Begrenzte Breite */
+    display: inline-block; /* Verhindert Dehnen */
     transition: color 0.3s ease; /* Sanfte Farbänderung */
 }
 
@@ -596,12 +571,6 @@ main {
 
 
 
-
-
-
-
-
-
 /* Newsletter Section */
 .newsletter-section {
     text-align: center;
@@ -609,7 +578,7 @@ main {
     font-family: 'Open Sans', sans-serif;
     background-color: #fff; /* Weißer Hintergrund */
     color: #000; /* Schwarzer Text */
-    margin-top: 10px;
+    margin-top: 0px;
     border: none;
     border-radius: 10px; /* Runde Ecken */
 }
@@ -626,14 +595,14 @@ main {
     font-size: 1em;
     line-height: 1.6;
     color: #333; /* Dunkler Grauton für Text */
-    margin-bottom: 20px; /* Abstand zum Formular */
+    margin-bottom: 30px; /* Abstand zum Formular */
 }
 
 /* Newsletter-Formular */
 .newsletter-form {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Abstand zwischen den Eingabefeldern */
+    gap: 15px; /* Abstand zwischen den Eingabefeldern */
     align-items: center; /* Zentriert die Eingabefelder */
 }
 
@@ -694,223 +663,228 @@ main {
 
 
 
-/* Footer Styling */
-.footer {
-    background-color: #f5f5f5; /* Hellgrauer Hintergrund */
-    text-align: center;
-    padding: 30px 20px;
-    font-family: 'Open Sans', sans-serif;
-    border-top: 1px solid #ddd; /* Dezente obere Linie */
-    margin-top: 30px;
-}
 
-
-/* Footer Logo */
-.footer-logo img {
-    max-width: 100px; /* Logo-Breite */
-    height: auto; /* Proportionales Skalieren */
-    margin-bottom: 20px; /* Abstand zu den Icons */
-}
-
-/* Social Media Icons */
-.footer-socials {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Abstand zwischen den Icons */
-    margin-bottom: 20px; /* Abstand zu den Links */
-}
-
-.social-icon img {
-    width: 40px; /* Größe der Icons */
-    height: 40px;
-    border-radius: 50%; /* Runde Form */
-    background-color: f5f5f5; /* Schwarzer Hintergrund */
-    padding: 5px; /* Innenabstand */
-    transition: transform 0.3s ease; /* Sanfter Hover-Effekt */
-}
-
-/* Hover-Effekt für Social Media Icons */
-.social-icon img:hover {
-    transform: scale(1.1); /* Vergrößerung beim Hover */
-    background-color: f5f5f5; /* Grüner Hintergrund */
-}
-
-/* Footer Links */
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 40px; /* Abstand zwischen den Links */
-    margin-top: 20px;
-}
-
-.footer-link {
-    text-decoration: none; /* Kein Unterstrich */
-    color: #000; /* Schwarzer Text */
-    font-weight: bold;
-    position: relative; /* Für die Linie */
-    font-size: 1em;
-    transition: color 0.3s ease; /* Sanfter Hover-Effekt */
-}
-
-/* Unterstrich beim Footer-Link */
-.footer-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 2px;
-    background-color: #000; /* Schwarzer Unterstrich */
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-/* Hover-Effekt für Footer-Link */
-.footer-link:hover {
-    color: #000000; /* Schwarzer Text beim Hover */
-}
-
-.footer-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: left; /* Linie erscheint von links nach rechts */
-}
-
-
-
-
-
-
-
-
-
-/* Globale Stile */
-body {
-    font-family: 'Open Sans', sans-serif;
-    color: #000;
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s ease;
-}
-
-
-/* Header Styling */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #ffffff; /* Weißer Hintergrund */
-    position: relative;
-}
-
-.logo img {
-    height: 50px;
-    width: auto;
-}
-
-/* Burger-Menü */
-.burger-menu {
+/* Standardstile */
+main {
     display: flex;
     flex-direction: column;
-    cursor: pointer;
-    z-index: 1100;
-}
-
-.burger-menu span {
-    display: block;
-    height: 4px;
-    width: 25px;
-    background-color: #6F6F6F;
-    margin: 3px 0;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-}
-
-.burger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger-menu.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.burger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Einleitungsbereich */
-.intro-section {
-    text-align: center;
+    align-items: center;
     padding: 20px;
 }
 
-.intro-section h1 {
-    font-size: 1.8em;
-    color: #5C835C; /* Grüner Farbton */
-    margin: 0;
-    line-height: 1.4;
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
 }
 
-/* Tipps-Galerie */
-body.kategorie-tipps .tips-gallery {
-    display: grid; /* Grid-Layout */
-    grid-template-columns: repeat(2, 1fr); /* Zwei Spalten */
-    gap: 20px; /* Abstand zwischen den Kacheln */
-    padding: 20px;
+.image-container {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 40px;
+    margin-top: 20px;
+    aspect-ratio: 3 / 4;
 }
 
-body.kategorie-tipps .tips-gallery .tip {
-    background-color: #ffffff; /* Weißer Hintergrund */
-    border-radius: 8px; /* Runde Ecken */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
-    overflow: hidden; /* Überstehende Inhalte ausblenden */
-    text-align: center; /* Text in der Mitte */
-    transition: transform 0.3s ease; /* Animation beim Hover */
+.responsive-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-body.kategorie-tipps .tips-gallery .tip:hover {
-    transform: scale(1.05); /* Leichte Vergrößerung */
+.image-container:hover .responsive-image {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-body.kategorie-tipps .tips-gallery .tip img {
-    width: 100%; /* Bild füllt den Container */
-    height: 250px; /* Einheitliche Höhe */
-    object-fit: cover; /* Zuschneiden des Bildes */
-    border-bottom: 2px solid #EAF3E6; /* Dezente Linie */
-}
-
-body.kategorie-tipps .tips-gallery .tip p {
-    padding: 10px;
-    font-size: 1.05em; /* Schriftgröße */
-    color: #000000; /* Dunkler Text */
-    line-height: 1.2;
-}
-
-/* Zurück-zur-Startseite Button */
-.back-to-home {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.back-to-home a {
-    font-size: 1em;
-    color: #000000;
-    text-decoration: none;
+.new-badge {
+    position: absolute;
+    top: -15px;
+    right: 30px;
+    background-color: #5C835C;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4em;
     font-weight: bold;
-    border: 2px solid #000000;
-    padding: 10px 20px;
-    border-radius: 30px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
 }
 
-.back-to-home a:hover {
+.content-section {
+    text-align: center;
+    padding: 1%;
+}
+
+.content-section h1 {
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 1.5em;
+    color: #000000;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.call-to-action {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 30px;
+    border: 2px solid #000000;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
     background-color: #5C835C;
     color: #fff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .image-wrapper {
+        max-width: 400px;
+    }
+
+    .new-badge {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2em;
+    }
+
+    .content-section h1 {
+        font-size: 1.4em;
+    }
+
+    .cta-button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-wrapper {
+        max-width: 300px;
+    }
+
+    .image-container {
+        border-radius: 20px;
+        margin-top: 10px;
+    }
+
+    .new-badge {
+        width: 50px;
+        height: 50px;
+        font-size: 1em;
+    }
+
+    .content-section h1 {
+        font-size: 1.2em;
+        line-height: 1.4;
+    }
+
+    .cta-button {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-wrapper {
+        max-width: 250px;
+    }
+
+    .image-container {
+        border-radius: 15px;
+        margin-top: 5px;
+    }
+
+    .new-badge {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8em;
+    }
+
+    .content-section h1 {
+        font-size: 1em;
+        line-height: 1.3;
+    }
+
+    .cta-button {
+        font-size: 0.7em;
+        padding: 5px 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile: Standardgröße */
+.about-image {
+    width: 300px; /* Breite für mobile Geräte */
+    height: 300px; /* Höhe für mobile Geräte */
+    object-fit: cover;
+    border-radius: 100%; /* Runde Form */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablet: Etwas größeres Bild */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .about-image {
+        width: 400px; /* Breitere Bildgröße für Tablets */
+        height: 400px;
+    }
+}
+
+/* Laptop/Desktop: Deutlich größeres Bild */
+@media (min-width: 1025px) {
+    .about-image {
+        width: 500px; /* Breite für Laptops und größere Bildschirme */
+        height: 500px;
+    }
+}

@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plastic Free</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="header.css"> 
     <script src="main.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
     
-    <!-- Header-Bereich -->
     <header>
         <!-- Logo in der Mitte -->
         <div class="logo">
@@ -25,8 +25,8 @@
             <span></span>
             <span></span>
         </div>
-
-        <!-- Seitenmenü -->
+    
+        <!-- Seitenmenü (für mobile Geräte) -->
         <div class="side-menu">
             <!-- Logo -->
             <div class="side-menu-logo">
@@ -35,26 +35,12 @@
         
             <!-- Menü-Links -->
             <ul class="side-menu-links">
-                <li>
-                    <a href="index.html">Startseite</a>
-                </li>
-                <li>
-                    <a href="#kategorien">Kategorien</a>
-                    <span class="menu-plus">+</span>
-                </li>
-                <li>
-                    <a href="#ueber-mich">Über mich</a>
-                </li>
-                <li>
-                    <a href="#kontakt">Kontakt</a>
-                </li>
-                <li>
-                    <a href="#newsletter">Newsletter</a>
-                    <span class="menu-plus">+</span>
-                </li>
-                <li>
-                    <a href="#rechtliches">Rechtliches</a>
-                </li>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="#kategorien">Kategorien</a><span class="menu-plus">+</span></li>
+                <li><a href="#ueber-mich">Über mich</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#newsletter">Newsletter</a><span class="menu-plus">+</span></li>
+                <li><a href="#rechtliches">Rechtliches</a></li>
             </ul>
         
             <!-- Social Media Icons -->
@@ -65,31 +51,47 @@
                 <a href="#"><img src="Images/youtube.png" alt="YouTube"></a>
             </div>
         </div>
-        
+    
+        <!-- Klassische Navigation für größere Geräte -->
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="#kategorien">Kategorien</a></li>
+                <li><a href="#ueber-mich">Über mich</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+                <li><a href="#rechtliches">Rechtliches</a></li>
+            </ul>
+        </nav>
     </header>
-
-
-
+    
     <main>
         <!-- Letzter neuer Beitrag mit Bild und Button -->
-        <section class="image-section">
-            <div class="image-container">
-                <a href="Blogbeitrag-1.html">
-                <img src="Images/Plastikfrei einkaufen.jpg" alt="Plastikfrei einkaufen" class="responsive-image">
-                <div class="new-badge">NEW</div>
-            </a>
+        <section class="image-content-wrapper">
+            <!-- Bildbereich -->
+            <div class="image-wrapper">
+                <div class="image-container">
+                    <a href="Blogbeitrag-1.html">
+                        <img src="Images/Plastikfrei einkaufen.jpg" alt="Plastikfrei einkaufen" class="responsive-image">
+                    </a>
+                    <div class="new-badge">NEW</div> <!-- Der "NEW"-Button -->
+                </div>
+            </div>
+    
+            <!-- Textbereich -->
+            <div class="text-wrapper">
+                <!-- Inhalt mit Titel -->
+                <div class="content-section">
+                    <h1>Mit diesen einfachen Tricks plastikfrei einkaufen</h1>
+                </div>
+                <!-- Call-to-Action Button -->
+                <div class="call-to-action">
+                    <a href="Blogbeitrag-1.html" class="cta-button">JETZT LESEN</a>
+                </div>
             </div>
         </section>
-        
-        <!-- Text und Button zum letzten Beitrag -->
-        <section class="content-section">
-            <h1>Mit diesen einfachen Tricks plastikfrei einkaufen.</h1>
-        </section>
-    
-        <section class="call-to-action">
-            <a href="Blogbeitrag-1.html" class="cta-button">JETZT LESEN</a>
-        </section>   
     </main>
+    
     
     <section class="slider-section">
         <h2>Hier sind noch mehr Tipps!</h2>
@@ -174,24 +176,34 @@
         <div class="progress-bar"></div>
     </div>
 
-   <!-- Weißer Bereich für Button -->
-<div class="button-container hidden">
-    <a href="kategorieseite-tipps.html" class="category-button">
-        Zu der Kategorieseite
-    </a>
-</div>
+    <!-- Button direkt hier -->
+    <div class="category-button-container">
+        <a href="kategorieseite-tipps.html" class="category-button">
+            Zu der Kategorieseite
+        </a>
+    </div>
 </section>
+
+
+
+
+
         
         
-     <!-- Persönlicher Abschnitt mit Bild -->
-    <section class="about-section">
-            <div class="about-image-container">
-                <img src="Images/Eva Stern.JPG" alt="Eva - Nachhaltigkeitsblog" class="about-image">
-            </div>
-        <h2>Mein Nachhaltigkeitsblog</h2>
-        <p>Hallo, ich bin Eva und meine Vision ist es, unseren Alltag plastikfreier zu gestalten – Schritt für Schritt und ohne Druck.</p>
-        <a href="#ueber-mich" class="cta-button">Das erwartet dich</a>
-    </section>
+   <!-- Persönlicher Abschnitt mit Bild -->
+<section class="about-section">
+    <div class="about-wrapper">
+        <div class="about-image-container">
+            <img src="Images/Eva Stern.JPG" alt="Eva - Nachhaltigkeitsblog" class="about-image">
+        </div>
+        <div class="about-content">
+            <h2>Mein Nachhaltigkeitsblog</h2>
+            <p>Hallo, ich bin Eva und meine Vision ist es, unseren Alltag plastikfreier zu gestalten – Schritt für Schritt und ohne Druck.</p>
+            <a href="#ueber-mich" class="cta-button">Das erwartet dich</a>
+        </div>
+    </div>
+</section>
+
 
 
 
@@ -227,31 +239,49 @@
             </div>
         </div>
     
-        <!-- Fortschrittsbalken -->
-        <div class="progress-bar-container">
-            <div class="progress-bar"></div>
-        </div>
-    
-        <!-- Button -->
-        <div class="button-container hidden">
-            <a href="/kategorie-plastik.html" class="category-button">
-                Zu der Kategorieseite
-            </a>
-        </div>
-    </section>
+              <!-- Fortschrittsbalken -->
+    <div class="progress-bar-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Button direkt hier -->
+    <div class="category-button-container">
+        <a href="kategorieseite-tipps.html" class="category-button">
+            Zu der Kategorieseite
+        </a>
+    </div>
+</section>
     
 
-    <section class="highlight-section">
-        <h2>Kennst du schon die Lebensdauer von Plastik?</h2>
+
+
+
+
+<section class="highlight-section">
+    <!-- Wrapper für Bild und Button -->
+    <div class="highlight-wrapper">
+        <!-- Container für das Bild -->
         <div class="highlight-image-container">
-            <img src="Images/Lebensdauer von Plastik.jpeg" alt="Lebensdauer von Plastik" class="highlight-image">
-            <div class="highlight-badge">WOW</div>
+            <img src="Images/Sanduhr.jpg" alt="Lebensdauer von Plastik" class="highlight-image">
         </div>
-        <div class="highlight-cta">
-            <a href="#lebensdauer" class="cta-button">JETZT LESEN</a>
-        </div>
-    </section>
-    
+        <!-- Button -->
+        <div class="highlight-badge">WOW</div>
+    </div>
+    <!-- Überschrift -->
+    <h2>Kennst du schon die Lebensdauer von Plastik?</h2>
+    <!-- Call-to-Action -->
+    <div class="highlight-cta">
+        <a href="#lebensdauer" class="cta-button">JETZT LESEN</a>
+    </div>
+</section>
+
+
+
+
+
+
+
+
 
     <section class="slider-section">
         <h2>Hier findest du noch mehr Fakten</h2>
@@ -260,59 +290,59 @@
             <div class="slider">
                 <div class="slider-item">
                     <div class="image-wrapper">
-                        <img src="Images/Umweltbelastung.jpg" alt="Fakten zur Umweltbelastung">
+                        <img src="Images/Umweltbelastung durch Plastik.jpg" alt="Fakten zur Umweltbelastung">
                     </div>
                     <div class="slider-caption">Fakten zur Umweltbelastung durch Plastik</div>
                 </div>
                 <div class="slider-item">
                     <div class="image-wrapper">
-                        <img src="Images/Ozeanverschmutzung.jpg" alt="Fakten zur Ozeanverschmutzung">
+                        <img src="Images/Ozeanverschmutzung.jpeg" alt="Fakten zur Ozeanverschmutzung">
                     </div>
                     <div class="slider-caption">Fakten über die Plastikverschmutzung in unseren Ozeanen</div>
                 </div>
                 <div class="slider-item">
                     <div class="image-wrapper">
-                        <img src="Images/Plastikverpackung.jpg" alt="Fakten zur Plastikverpackung">
+                        <img src="Images/Plastikverpackung.jpeg" alt="Fakten zur Plastikverpackung">
                     </div>
                     <div class="slider-caption">Fakten zu Plastikverpackungen: Warum so viel ungenutzt bleibt</div>
                 </div>
                 <div class="slider-item">
                     <div class="image-wrapper">
-                        <img src="Images/Mythen_Plastik.jpg" alt="Mythen und Wahrheiten über Plastik">
+                        <img src="Images/Mythen und Wahrheiten.jpg" alt="Mythen und Wahrheiten über Plastik">
                     </div>
                     <div class="slider-caption">10 Mythen und Wahrheiten über Plastik. Das musst du unbedingt wissen</div>
                 </div>
             </div>
         </div>
     
-        <!-- Fortschrittsbalken -->
-        <div class="progress-bar-container">
-            <div class="progress-bar"></div>
-        </div>
+           <!-- Fortschrittsbalken -->
+    <div class="progress-bar-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Button direkt hier -->
+    <div class="category-button-container">
+        <a href="kategorieseite-tipps.html" class="category-button">
+            Zu der Kategorieseite
+        </a>
+    </div>
+</section>
     
-        <!-- Button -->
-        <div class="button-container hidden">
-            <a href="/kategorie-fakten.html" class="category-button">
-                Zu der Kategorieseite
-            </a>
-        </div>
-    </section>
-    
 
 
 
 
+<!-- Themen Interesse absenden -->
+<section class="interest-section">
+    <h2>Worüber möchtest du das nächste Mal <br> gerne mehr erfahren?</h2>
+    <input 
+        type="text" 
+        placeholder="Das interessiert mich" 
+        class="interest-input"
+    >
+    <button type="submit" class="submit-button">Absenden</button>
+</section>
 
- <!-- Themen Interesse absenden -->
-    <section class="interest-section">
-        <h2>Welche Themen interessieren dich am meisten?</h2>
-        <input 
-            type="text" 
-            placeholder="Das interessiert mich" 
-            class="interest-input"
-        >
-        <button type="submit" class="submit-button">Absenden</button>
-    </section>
     
     
     

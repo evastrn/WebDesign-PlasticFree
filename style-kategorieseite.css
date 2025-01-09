@@ -1,0 +1,86 @@
+/* Globale Stile */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+
+/* Einleitungsbereich Kategorieseite!!!!*/
+.intro-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.intro-section h1 {
+    font-size: 1.8em;
+    color: #5C835C; /* Grüner Farbton */
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Tipps-Galerie */
+body.kategorie-tipps .tips-gallery {
+    display: grid; /* Grid-Layout */
+    grid-template-columns: repeat(2, 1fr); /* Zwei Spalten */
+    gap: 20px; /* Abstand zwischen den Kacheln */
+    padding: 20px;
+}
+
+body.kategorie-tipps .tips-gallery .tip {
+    background-color: #ffffff; /* Weißer Hintergrund */
+    border-radius: 8px; /* Runde Ecken */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+    overflow: hidden; /* Überstehende Inhalte ausblenden */
+    text-align: center; /* Text in der Mitte */
+    transition: transform 0.3s ease; /* Animation beim Hover */
+}
+
+body.kategorie-tipps .tips-gallery .tip:hover {
+    transform: scale(1.05); /* Leichte Vergrößerung */
+}
+
+body.kategorie-tipps .tips-gallery .tip img {
+    width: 100%; /* Bild füllt den Container */
+    height: 250px; /* Einheitliche Höhe */
+    object-fit: cover; /* Zuschneiden des Bildes */
+    border-bottom: 2px solid #EAF3E6; /* Dezente Linie */
+}
+
+body.kategorie-tipps .tips-gallery .tip p {
+    padding: 10px;
+    font-size: 1.05em; /* Schriftgröße */
+    color: #000000; /* Dunkler Text */
+    line-height: 1.2;
+}
+
+
+/* Zurück-zur-Startseite Button */
+.back-to-home {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.back-to-home a {
+    font-size: 1em;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #000000;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-to-home a:hover {
+    background-color: #5C835C;
+    color: #fff;
+}
+

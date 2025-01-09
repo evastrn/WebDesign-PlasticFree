@@ -1,0 +1,230 @@
+/* Header Styling */
+header {
+    display: flex;
+    flex-direction: column; /* Ändert die Richtung zu vertikal */
+    align-items: center; /* Zentriert Logo und Navigation */
+    padding: 20px;
+    position: relative;
+}
+
+/* Logo zentrieren */
+.logo {
+    margin-bottom: 20px; /* Abstand zur Navigation */
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+/* Side Menu Styling */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Menü sichtbar */
+.side-menu.visible {
+    transform: translateX(0);
+}
+
+.side-menu-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.side-menu-logo img {
+    max-width: 80px;
+    height: auto;
+}
+
+/* Menü-Links */
+.side-menu-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Platz zwischen Logo und Social Media */
+}
+
+.side-menu-links li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd; /* Trennlinien */
+    padding: 15px 0;
+}
+
+.side-menu-links li a {
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+}
+
+.side-menu-links .menu-plus {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+}
+
+/* Social Media Icons */
+.side-menu-socials {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.side-menu-socials a img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.side-menu-socials a img:hover {
+    transform: scale(1.1);
+}
+
+/* Burger-Menü Icon Styling */
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1100; /* Über dem Side-Menu */
+}
+
+.burger-menu span {
+    display: block;
+    height: 4px;
+    width: 35px;
+    background-color: #6F6F6F;
+    margin: 3px 0;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+/* Body fix für horizontales Scrollen */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Keine horizontale Scrollleiste */
+}
+
+
+
+
+
+/* Desktop-Navigation */
+.desktop-nav {
+    display: none; /* Standardmäßig versteckt */
+    width: 100%; /* Navigation füllt die volle Breite */
+    text-align: center; /* Zentriert die Navigation horizontal */
+}
+
+.desktop-nav ul {
+    display: inline-flex; /* Horizontal ausgerichtet und zentriert */
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-nav li {
+    position: relative;
+}
+
+.desktop-nav li a {
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600; /* Halbfett für bessere Lesbarkeit */
+    color: #000;
+    padding: 5px 0;
+    display: inline-block; /* Ermöglicht zentrierten Hover-Effekt */
+}
+
+.desktop-nav li a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Burger-Menü Icon Styling */
+.burger-menu {
+    position: absolute; /* Positioniert das Burger-Menü absolut */
+    top: 20px;
+    right: 20px; /* Setzt es rechts im Header */
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1100; /* Über dem Side-Menu */
+}
+
+.burger-menu span {
+    display: block;
+    height: 4px;
+    width: 35px;
+    background-color: #6F6F6F;
+    margin: 3px 0;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+/* Body fix für horizontales Scrollen */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Keine horizontale Scrollleiste */
+}
+
+/* Mobile Design (bis 768px) */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none; /* Klassische Navigation verstecken */
+    }
+
+    .burger-menu {
+        display: flex; /* Burger-Menü anzeigen */
+    }
+
+    .side-menu {
+        display: flex;
+    }
+}
+
+/* Tablet und Laptop (ab 769px) */
+@media (min-width: 769px) {
+    .burger-menu {
+        display: none; /* Burger-Menü verstecken */
+    }
+
+    .side-menu {
+        display: none; /* Mobile Navigation verstecken */
+    }
+
+    .desktop-nav {
+        display: block; /* Klassische Navigation anzeigen */
+    }
+}
+
+/* Schriftart für das gesamte Dokument */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
