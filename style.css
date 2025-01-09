@@ -103,7 +103,6 @@ main {
 
 
 
-
 /* Slider Section */
 .slider-section {
     text-align: center;
@@ -123,7 +122,7 @@ main {
     scroll-snap-type: x mandatory; /* Aktiviert Snap-Verhalten */
 }
 
-/* Vermeide Übergänge auf das Scrollen */
+/* Slider */
 .slider {
     display: flex;
     gap: 20px; /* Abstand zwischen den Slider-Items */
@@ -131,15 +130,6 @@ main {
     scroll-behavior: smooth; /* Sanftes Scrollen */
     padding: 10px 0; /* Vertikaler Abstand innerhalb des Sliders */
     transition: none; /* Keine Übergangseffekte für das Scrollen */
-}
-/* Vermeide Verzögerung bei den Bildern */
-.slider-item img {
-    transition: transform 0s ease; /* Keine Verzögerung für das Bild */
-    will-change: transform; /* Optimierung für bewegte Bilder */
-}
-
-.slider::-webkit-scrollbar {
-    display: none; /* Versteckt den Scrollbar */
 }
 
 /* Slider Items */
@@ -151,58 +141,48 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
 }
 
-/* Bilder */
 .slider-item img {
     width: 100%;
     height: 250px;
     object-fit: cover; /* Zuschneiden des Bildes, ohne Verzerrung */
     border-radius: 10px; /* Runde Ecken des Bildes */
+    transition: transform 0s ease; /* Keine Verzögerung für das Bild */
+    will-change: transform; /* Optimierung für bewegte Bilder */
 }
 
-/* Slider-Bild-Beschriftungen */
-.slider-caption {
-    margin-top: 10px; /* Abstand zwischen Bild und Text */
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em; /* Schriftgröße */
-    color: #333; /* Textfarbe */
-    line-height: 1.5; /* Angenehme Zeilenhöhe */
-    max-width: 230px; /* Maximale Breite der Beschriftung */
-    margin: 10px auto 20px; /* Zentriert den Text */
-    text-align: center; /* Textausrichtung */
+.slider::-webkit-scrollbar {
+    display: none; /* Versteckt den Scrollbar */
 }
 
-/* Fortschrittsbalken */
-.progress-bar-container {
-    width: 100%; /* Anpassung an den Container */
-    max-width: 900px; /* Maximale Breite */
-    margin: 10px auto; /* Zentrierung */
+/* Fortschrittsbalken für alle Slider-Sections */
+.slider-section .progress-bar-container {
+    width: calc(100% - 40px); /* Breite: Reduziert um 40px für Abstand */
+    margin: 0 auto; /* Zentriert die Fortschrittsleiste */
     margin-top: 40px;
     height: 5px; /* Höhe des Fortschrittsbalkens */
-    background-color: #e0e0e0; /* Hellgrauer Hintergrund */
+    background-color: #e0e0e0; /* Hintergrundfarbe */
     border-radius: 3px; /* Runde Ecken */
-    overflow: hidden;
+    overflow: hidden; /* Nichts außerhalb sichtbar */
 }
 
-.progress-bar {
+.slider-section .progress-bar {
     height: 100%;
     background-color: #5C835C; /* Grüne Farbe */
-    width: 10%; /* Startwert bei 10% */
+    width: 10%; /* Startwert */
     transition: width 0.3s ease-in-out;
 }
 
-/* Button Container ohne weißen Hintergrund */
+/* Button Styling */
 .category-button-container {
     text-align: center; /* Zentriert den Button horizontal */
     margin-top: 50px; /* Abstand zum Slider */
     display: none; /* Standardmäßig unsichtbar */
 }
 
-/* Button sichtbar machen */
 .category-button-container.visible {
     display: block; /* Button wird sichtbar */
 }
 
-/* Button Styling */
 .category-button {
     display: inline-block;
     padding: 10px 20px; /* Innenabstand des Buttons */
@@ -223,76 +203,54 @@ main {
 .category-button:hover {
     transform: scale(1.1); /* Vergrößerung beim Hover */
     background-color: #4A6A4A; /* Dunkleres Grün beim Hover */
-    transform: scale(1.05); /* Leichte Vergrößerung */
 }
 
-/* Mobile Ansicht (Standard) */
-.slider-section {
-    text-align: center;
-    margin: 40px auto;
-    font-family: 'Open Sans', sans-serif;
-    padding: 0 10px;
-}
-
-/* Mobile: Slider Items */
-.slider-item {
-    flex: 0 0 80%; /* Breite der Slider-Items bei kleinen Bildschirmen */
-    max-width: 300px; /* Begrenzung der maximalen Breite */
-}
-
-/* Tablet-Ansicht */
+/* Responsive Design */
 @media (min-width: 600px) {
     .slider-container {
-        max-width: 700px; /* Breitere Ansicht für Tablet */
+        max-width: 700px;
     }
 
     .slider-item {
-        flex: 0 0 40%; /* Slider-Items werden größer */
+        flex: 0 0 40%;
     }
 
     .slider-caption {
-        font-size: 1.1em; /* Größere Schriftgröße */
-        max-width: 300px; /* Maximale Breite anpassen */
+        font-size: 1.1em;
+        max-width: 300px;
     }
 }
 
-/* Laptop- und Desktop-Ansicht */
 @media (min-width: 1024px) {
     .slider-container {
-        max-width: 1000px; /* Noch breiterer Container */
-        padding-bottom: 40px; /* Zusätzlicher Platz für größere Slider */
+        max-width: 1000px;
+        padding-bottom: 40px;
     }
 
     .slider-item {
-        flex: 0 0 30%; /* Mehr Slider-Items sichtbar */
-    }
-
-    .slider-caption {
-        font-size: 1.2em; /* Noch größere Schriftgröße */
-        max-width: 320px;
+        flex: 0 0 30%;
     }
 
     .progress-bar-container {
-        max-width: 1000px; /* Fortschrittsbalken breiter */
+        max-width: 1000px;
     }
 
     .category-button-container {
-        margin-top: 60px; /* Mehr Abstand zum Slider */
+        margin-top: 60px;
     }
 }
 
-/* Großer Bildschirm (ab 1400px) */
 @media (min-width: 1400px) {
     .slider-container {
-        max-width: 1200px; /* Noch breiter für große Bildschirme */
+        max-width: 1200px;
     }
 
     .slider-item {
-        flex: 0 0 25%; /* Mehr Platz für Slider-Items */
+        flex: 0 0 25%;
     }
 
     .slider-caption {
-        font-size: 1.3em; /* Optimierung für größere Bildschirme */
+        font-size: 1.3em;
     }
 }
 
@@ -374,6 +332,16 @@ main {
         padding: 40px; /* Größerer Innenabstand für Tablet/Desktop */
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -481,6 +449,12 @@ main {
 
 
 
+
+
+
+
+
+
 /* Interest Section */
 .interest-section {
     text-align: center;
@@ -574,7 +548,7 @@ main {
 /* Newsletter Section */
 .newsletter-section {
     text-align: center;
-    padding: 30px 20px;
+    padding: 50px 20px; /* Mehr Abstand zum Bildschirmrand */
     font-family: 'Open Sans', sans-serif;
     background-color: #fff; /* Weißer Hintergrund */
     color: #000; /* Schwarzer Text */
@@ -587,15 +561,18 @@ main {
 .newsletter-section h2 {
     font-size: 1.5em;
     font-weight: bold;
-    margin-bottom: 15px; /* Abstand zur Beschreibung */
+    margin-bottom: 10px; /* Mehr Abstand zur Beschreibung */
 }
 
 /* Beschreibungstext */
 .newsletter-section p {
     font-size: 1em;
-    line-height: 1.6;
+    line-height: 1.8; /* Erhöhter Zeilenabstand für bessere Lesbarkeit */
     color: #333; /* Dunkler Grauton für Text */
     margin-bottom: 30px; /* Abstand zum Formular */
+    max-width: 800px; /* Begrenzte Breite für besseren Textfluss */
+    margin: 0 auto; /* Zentriert den Text */
+
 }
 
 /* Newsletter-Formular */
@@ -604,12 +581,20 @@ main {
     flex-direction: column;
     gap: 15px; /* Abstand zwischen den Eingabefeldern */
     align-items: center; /* Zentriert die Eingabefelder */
+    width: 100%;
+    margin-top: 20px;
 }
+/* Abstand zum ersten Eingabefeld vergrößern */
+.newsletter-form .newsletter-input:first-child {
+    margin-top: 0px; /* Abstand nach oben */
+    margin-bottom: 0px; /* Abstand nach unten */
+}
+
 
 /* Eingabefelder */
 .newsletter-input {
     width: 80%;
-    max-width: 400px; /* Maximale Breite */
+    max-width: 300px; /* Maximale Breite */
     padding: 10px 15px;
     font-size: 1em;
     border: 2px solid #e0e0e0; /* Leichter grauer Rahmen */
@@ -631,10 +616,10 @@ main {
 
 /* Anmeldebutton */
 .newsletter-button {
-    width: 40%;
-    max-width: 400px;
+    width: 100%; /* Breite des Buttons soll angepasst werden */
+    max-width: 200px;
+    margin-top: 10px;
     padding: 10px 15px;
-    margin-top: 20px;
     font-size: 1em;
     font-weight: bold;
     text-transform: uppercase;
@@ -655,7 +640,26 @@ main {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Tieferer Schatten */
 }
 
+/* Layout für Tablet und Laptop */
+@media (min-width: 769px) {
+    /* Newsletter-Formular: Eingabefelder nebeneinander */
+    .newsletter-form {
+        flex-direction: row; /* Horizontale Anordnung */
+        justify-content: center; /* Zentriert das Formular */
+        gap: 20px; /* Etwas mehr Abstand zwischen den Feldern */
+    }
 
+    /* Eingabefelder nebeneinander */
+    .newsletter-input {
+        width: 45%; /* Weniger Breite, damit sie nebeneinander passen */
+    }
+
+    /* Button parallel zu den Eingabefeldern */
+    .newsletter-button {
+        width: 45%; /* Gleiche Breite wie die Eingabefelder */
+        margin-top: 0; /* Kein Abstand mehr oben */
+    }
+}
 
 
 
