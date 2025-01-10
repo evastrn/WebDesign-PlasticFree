@@ -56,10 +56,25 @@ main {
     line-height: 1.6;
 }
 
-/* Call-to-Action Styling */
-.call-to-action {
-    margin-top: 20px;
-    text-align: center;
+
+/* Teaser-Text Styling */
+.teaser-text {
+    display: none; /* Standardmäßig verstecken */
+    font-size: 1em;
+    line-height: 1.8; /* Angenehme Lesbarkeit */
+    color: #333; /* Dunkler Grauton */
+    margin-top: 20px; /* Abstand über dem Teaser */
+    margin-bottom: 20px; /* Abstand unter dem Teaser */
+    text-align: center; /* Zentrierter Text */
+}
+
+/* Sichtbarkeit und Styling für größere Bildschirme */
+@media (min-width: 1200px) {
+    .teaser-text {
+        display: block; /* Teaser wird sichtbar */
+        max-width: 600px; /* Begrenzte Breite für bessere Lesbarkeit */
+        margin: 0 auto; /* Zentrierung für den Text */
+    }
 }
 
 /* Layout für Tablet und Laptop */
@@ -98,6 +113,9 @@ main {
         padding: 50px; /* Zusätzlicher Innenabstand */
     }
 }
+
+
+
 
 
 
@@ -422,30 +440,6 @@ main {
     text-align: center;
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 10px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border-radius: 30px;
-    border: 2px solid #000000;
-    font-size: 1em; /* Schriftgröße */
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold; /* Schriftgewicht */
-    text-transform: uppercase; /* Großbuchstaben */
-    letter-spacing: 1px; /* Buchstabenabstand */
-    text-decoration: none; /* Unterstrich entfernen */
-    cursor: pointer;
-    transition: all 0.3s ease; /* Optional: Animationseffekt */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Schlagschatten */
-}
-
-.cta-button:hover {
-    background-color: #5C835C;
-    color: #fff;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Tieferer Schlagschatten beim Hover */
-}
 
 
 
