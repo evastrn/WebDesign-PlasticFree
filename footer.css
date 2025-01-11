@@ -1,59 +1,59 @@
 /* Footer Styling */
 .footer {
-    background-color: #f5f5f5; /* Hellgrauer Hintergrund */
+    background-color: #fafafa; /* Hellgrauer, weniger dominanter Hintergrund */
     text-align: center;
-    padding: 30px 20px;
+    padding: 20px 15px; /* Weniger Polsterung */
     font-family: 'Open Sans', sans-serif;
-    border-top: 1px solid #ddd; /* Dezente obere Linie */
-    margin-top: 30px;
+    border-top: 1px solid #e0e0e0; /* Dezente obere Linie */
+    margin-top: 20px; /* Weniger Abstand nach oben */
+    font-size: 0.9em; /* Kleinere Schriftgröße */
 }
-
 
 /* Footer Logo */
 .footer-logo img {
-    max-width: 100px; /* Logo-Breite */
-    height: auto; /* Proportionales Skalieren */
-    margin-bottom: 20px; /* Abstand zu den Icons */
+    max-width: 80px; /* Kleineres Logo */
+    height: auto;
+    margin-bottom: 15px; /* Weniger Abstand zu den Icons */
 }
 
 /* Social Media Icons */
 .footer-socials {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Abstand zwischen den Icons */
-    margin-bottom: 20px; /* Abstand zu den Links */
+    gap: 15px; /* Weniger Abstand zwischen den Icons */
+    margin-bottom: 15px; /* Weniger Abstand zu den Links */
 }
 
 .social-icon img {
-    width: 40px; /* Größe der Icons */
-    height: 40px;
+    width: 30px; /* Kleinere Icons */
+    height: 30px;
     border-radius: 50%; /* Runde Form */
-    background-color: f5f5f5; /* Schwarzer Hintergrund */
-    padding: 5px; /* Innenabstand */
-    transition: transform 0.3s ease; /* Sanfter Hover-Effekt */
+    background-color: #fafafa; /* Hellgrauer Hintergrund */
+    padding: 4px; /* Weniger Innenabstand */
+    transition: transform 0.3s ease;
 }
 
 /* Hover-Effekt für Social Media Icons */
 .social-icon img:hover {
-    transform: scale(1.1); /* Vergrößerung beim Hover */
-    background-color: f5f5f5; /* Grüner Hintergrund */
+    transform: scale(1.05); /* Dezenter Hover-Effekt */
+    background-color: #f0f0f0; /* Etwas dunklerer Hover-Hintergrund */
 }
 
 /* Footer Links */
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 40px; /* Abstand zwischen den Links */
-    margin-top: 20px;
+    gap: 30px; /* Weniger Abstand zwischen den Links */
+    margin-top: 15px; /* Weniger Abstand nach oben */
 }
 
 .footer-link {
-    text-decoration: none; /* Kein Unterstrich */
-    color: #000; /* Schwarzer Text */
-    font-weight: bold;
-    position: relative; /* Für die Linie */
-    font-size: 1em;
-    transition: color 0.3s ease; /* Sanfter Hover-Effekt */
+    text-decoration: none;
+    color: #555; /* Dezenterer, dunkler Grauton für die Links */
+    font-weight: normal; /* Keine Fettschrift */
+    position: relative;
+    font-size: 0.9em; /* Kleinere Schriftgröße */
+    transition: color 0.3s ease;
 }
 
 /* Unterstrich beim Footer-Link */
@@ -61,10 +61,10 @@
     content: "";
     position: absolute;
     left: 0;
-    bottom: -5px;
+    bottom: -4px; /* Kleinerer Abstand zur Schrift */
     width: 100%;
-    height: 2px;
-    background-color: #000; /* Schwarzer Unterstrich */
+    height: 1px; /* Dünnere Linie */
+    background-color: #555; /* Dezenterer Grauton */
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
@@ -72,10 +72,39 @@
 
 /* Hover-Effekt für Footer-Link */
 .footer-link:hover {
-    color: #000000; /* Schwarzer Text beim Hover */
+    color: #333; /* Dunklerer Grauton beim Hover */
 }
 
 .footer-link:hover::after {
     transform: scaleX(1);
-    transform-origin: left; /* Linie erscheint von links nach rechts */
+    transform-origin: left;
+}
+
+/* Responsive Anpassungen für kleinere Bildschirme */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px 10px; /* Weniger Polsterung für Mobilgeräte */
+        font-size: 0.85em; /* Noch kleinere Schriftgröße */
+    }
+
+    .footer-logo img {
+        max-width: 70px; /* Logo weiter verkleinern */
+    }
+
+    .footer-socials {
+        gap: 10px; /* Weniger Abstand zwischen den Icons */
+    }
+
+    .social-icon img {
+        width: 25px; /* Kleinere Icons */
+        height: 25px;
+    }
+
+    .footer-links {
+        gap: 20px; /* Weniger Abstand zwischen Links */
+    }
+
+    .footer-link {
+        font-size: 0.85em; /* Noch kleinere Schriftgröße */
+    }
 }

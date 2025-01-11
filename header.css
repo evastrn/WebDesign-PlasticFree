@@ -108,10 +108,10 @@ header {
 
 .burger-menu span {
     display: block;
-    height: 4px;
-    width: 35px;
+    height: 3px;
+    width: 25px;
     background-color: #6F6F6F;
-    margin: 3px 0;
+    margin: 2px 0;
     border-radius: 50px;
     transition: all 0.3s ease;
 }
@@ -169,7 +169,7 @@ html, body {
 /* Burger-Menü Icon Styling */
 .burger-menu {
     position: absolute; /* Positioniert das Burger-Menü absolut */
-    top: 20px;
+    top: 20px; /* Der Abstand zum oberen Rand wird auf 20px gesetzt */
     right: 20px; /* Setzt es rechts im Header */
     display: flex;
     flex-direction: column;
@@ -179,10 +179,10 @@ html, body {
 
 .burger-menu span {
     display: block;
-    height: 4px;
-    width: 35px;
+    height: 3px; /* Kleinere Höhe für die Balken */
+    width: 25px; /* Etwas schmaler */
     background-color: #6F6F6F;
-    margin: 3px 0;
+    margin: 3px 0; /* Mehr Abstand zwischen den Balken */
     border-radius: 50px;
     transition: all 0.3s ease;
 }
@@ -196,6 +196,15 @@ html, body {
 
 /* Mobile Design (bis 768px) */
 @media (max-width: 768px) {
+    /* Logo oben mit Burger-Menü auf gleicher Höhe */
+    .logo {
+        margin-bottom: 0; /* Entfernt den Abstand unter dem Logo */
+    }
+
+    .burger-menu {
+        top: 35px; /* Setzt das Burger-Menü weiter nach oben, auf gleiche Höhe wie das Logo */
+    }
+
     .desktop-nav {
         display: none; /* Klassische Navigation verstecken */
     }

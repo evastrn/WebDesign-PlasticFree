@@ -11,10 +11,10 @@ main {
     display: flex;
     flex-direction: column; /* Vertikale Anordnung für Mobile */
     align-items: center;
-    gap: 30px; /* Abstand zwischen Bild und Textbereich */
+    gap: 10px; /* Weniger Abstand zwischen Bild und Text */
     width: 100%;
     max-width: 1200px; /* Maximale Breite für den gesamten Bereich */
-    margin-bottom: 40px; /* Mehr Abstand unter dem gesamten Bereich */
+    margin-bottom: 20px; /* Reduzierter Abstand unter dem gesamten Bereich */
 }
 
 /* Bild-Wrapper */
@@ -26,9 +26,10 @@ main {
 
 /* Das Bild */
 .responsive-image {
-    width: 5000px; /* Standardgröße */
+    width: 1000px; /* Standardbreite */
     height: auto;
-    object-fit: cover;
+    max-height: 500px; /* Maximale Höhe für größere Bildschirme */
+    object-fit: cover; /* Bild wird zugeschnitten, um die Proportionen zu wahren */
     border-radius: 40px; /* Runde Ecken */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionaler Schatten */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -43,7 +44,8 @@ main {
 .text-wrapper {
     max-width: 600px; /* Begrenzte Breite für bessere Lesbarkeit */
     text-align: center;
-    padding: 20px; /* Innenabstand für mehr Raum rund um den Text */
+    padding: 10px; /* Weniger Innenabstand */
+    margin: 0; /* Kein zusätzlicher Rand */
     line-height: 1.8; /* Erhöhte Zeilenhöhe für bessere Lesbarkeit */
 }
 
@@ -52,7 +54,7 @@ main {
     font-family: 'Open Sans', sans-serif; 
     font-size: 1.5em;
     color: #000000;
-    margin: 20px auto; /* Standard-Abstand */
+    margin: 10px auto; /* Weniger Abstand */
     line-height: 1.6;
 }
 
@@ -103,6 +105,7 @@ main {
         max-width: 600px; /* Begrenzte Breite für bessere Lesbarkeit */
         margin: 0 auto; /* Zentrierung für den Text */
     }
+    
 }
 
 /* Layout für Tablet und Laptop */
@@ -110,7 +113,7 @@ main {
     .image-content-wrapper {
         flex-direction: row; /* Horizontale Anordnung */
         justify-content: center; /* Zentriert den Bereich */
-        gap: 50px; /* Abstand zwischen Bild und Text */
+        gap: 30px; /* Geringerer Abstand zwischen Bild und Text */
         margin-left: 50px;
     }
 
@@ -119,8 +122,9 @@ main {
     }
 
     .responsive-image {
-        width: 400px; /* Größeres Bild für Tablet */
+        width: 400px; /* Verkleinerte Breite */
         height: auto;
+        max-height: 400px; /* Begrenzung der Höhe */
     }
 
     .text-wrapper {
@@ -133,8 +137,9 @@ main {
 /* Nur für größere Bildschirme (Laptop und größer) */
 @media (min-width: 1200px) {
     .responsive-image {
-        width: 500px; /* Größtes Bild für Laptop/Desktop */
+        width: 500px; /* Größere Breite für Laptop/Desktop */
         height: auto;
+        max-height: 550px; /* Begrenzte Höhe für größere Bildschirme */
     }
 
     .text-wrapper {
@@ -147,12 +152,24 @@ main {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* Slider Section */
 .slider-section {
     text-align: center;
-    margin: 80px auto;
+    margin: 40px auto; /* Geringerer Abstand */
     font-family: 'Open Sans', sans-serif;
-    padding: 0 20px; /* Zusätzlicher Abstand links und rechts */
+    padding: 0 10px; /* Weniger Innenabstand */
 }
 
 /* Slider Container */
@@ -161,15 +178,15 @@ main {
     overflow: hidden;
     width: 100%;
     max-width: 900px;
-    margin: 0 auto;
-    padding-bottom: 20px;
+    margin: 20px auto; /* Abstand minimiert */
+    padding-bottom: 10px; /* Weniger vertikaler Abstand */
     scroll-snap-type: x mandatory; /* Aktiviert Snap-Verhalten */
 }
 
 /* Slider */
 .slider {
     display: flex;
-    gap: 20px; /* Abstand zwischen den Slider-Items */
+    gap: 10px; /* Weniger Abstand zwischen den Slider-Items */
     overflow-x: auto; /* Ermöglicht horizontales Scrollen */
     scroll-behavior: smooth; /* Sanftes Scrollen */
     padding: 10px 0; /* Vertikaler Abstand innerhalb des Sliders */
@@ -197,6 +214,7 @@ main {
 .slider::-webkit-scrollbar {
     display: none; /* Versteckt den Scrollbar */
 }
+
 
 /* Fortschrittsbalken für alle Slider-Sections */
 .slider-section .progress-bar-container {
@@ -302,11 +320,12 @@ main {
 
 
 
+
 /* Persönlicher Abschnitt */
 .about-section {
-    margin-top: 50px; /* Abstand über der Sektion */
+    margin-top: 50px; /* Beibehaltung des äußeren Abstands */
     font-family: 'Open Sans', sans-serif;
-    padding: 20px; /* Innenabstand zu den Rändern */
+    padding: 20px; /* Innenabstand bleibt unverändert */
 }
 
 /* Wrapper für Bild und Text */
@@ -315,13 +334,12 @@ main {
     flex-direction: column; /* Vertikale Anordnung für Mobile */
     align-items: center;
     text-align: center;
-    gap: 30px; /* Abstand zwischen Bild und Textbereich */
+    gap: 20px; /* Reduzierter Abstand zwischen Bild und Textbereich */
 }
 
 /* Container für das Bild */
 .about-image-container {
     margin-bottom: 0; /* Kein zusätzlicher Abstand, da "gap" verwendet wird */
-
 }
 
 /* Das Bild */
@@ -331,29 +349,31 @@ main {
     object-fit: cover;
     border-radius: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: auto; /* Abstand zum linken Rand bei großen Bildschirmen */
+    margin-right: auto; /* Abstand zum rechten Rand bei großen Bildschirmen */
 }
 
 /* Begrenzung des Textbereichs */
 .about-content {
-    max-width: 600px; /* Textinhalt nicht über diese Breite hinaus anzeigen */
-    padding: 20px; /* Innenabstand für mehr Raum rund um den Text */
+    max-width: 600px; /* Textinhalt bleibt begrenzt */
+    padding: 10px; /* Innenabstand reduziert */
     margin: 0 auto; /* Zentrierung */
-    line-height: 1.8; /* Erhöhte Zeilenhöhe für bessere Lesbarkeit */
+    line-height: 1.6; /* Leicht reduzierte Zeilenhöhe */
 }
 
 /* Abstand zwischen den Text-Elementen */
 .about-content h2 {
-    margin-bottom: 20px; /* Abstand unter der Überschrift */
+    margin-bottom: 15px; /* Reduzierter Abstand unter der Überschrift */
 }
 
 .about-content p {
-    font-size: 1.1em;
-    margin-bottom: 30px; /* Abstand zwischen Absatz und Button */
+    font-size: 1em; /* Optionale Schriftgröße-Anpassung */
+    margin-bottom: 15px; /* Reduzierter Abstand zwischen Absatz und Button */
 }
 
 /* Abstand zwischen Button und Rand */
 .about-content .cta-button {
-    margin-top: 30px;
+    margin-top: 20px; /* Reduzierter Abstand über dem Button */
 }
 
 /* Tablet- und Desktop-Ansicht */
@@ -362,30 +382,47 @@ main {
         flex-direction: row; /* Horizontale Anordnung */
         justify-content: center; /* Zentriert */
         align-items: center; /* Vertikal ausgerichtet */
-        gap: 50px; /* Größerer Abstand zwischen Bild und Textbereich */
+        gap: 40px; /* Reduzierter Abstand zwischen Bild und Textbereich */
     }
+
     .about-image-container {
-        margin-left: 40px; /* Abstand für Tablet und Desktop */
+        margin-left: 40px; /* Abstand zwischen Bild und Rand */
+        margin-right: 40px; /* Abstand auf beiden Seiten */
     }
+
     .about-image {
-        width: 400px;
+        width: 400px; /* Vergrößertes Bild für Tablet */
         height: 400px;
     }
 
     .about-content {
-        padding: 40px; /* Größerer Innenabstand für Tablet/Desktop */
+        padding: 20px; /* Reduzierter Innenabstand für mehr Kompaktheit */
     }
 }
 
+/* Größere Bildschirme (Laptop und Desktop) */
+@media (min-width: 1200px) {
+    .about-wrapper {
+        justify-content: flex-start; /* Linksbündige Anordnung */
+        padding: 40px; /* Zusätzlicher Abstand zum Rand */
+        gap: 60px; /* Mehr Platz zwischen Bild und Text */
+    }
 
+    .about-image-container {
+        margin-left: 60px; /* Größerer Abstand links */
+        margin-right: 0; /* Kein zusätzlicher Abstand rechts */
+    }
 
+    .about-image {
+        width: 500px; /* Deutlich größeres Bild für Desktop */
+        height: 500px;
+    }
 
-
-
-
-
-
-
+    .about-content {
+        max-width: 700px; /* Größerer Textbereich */
+        padding: 30px; /* Mehr Innenabstand für Lesbarkeit */
+    }
+}
 
 
 
@@ -405,7 +442,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 20px; /* Abstand zwischen Bild und Text */
     width: 100%;
     max-width: 1200px;
 }
@@ -417,7 +454,7 @@ main {
     aspect-ratio: 3 / 4; /* Hochformat: Breite zu Höhe im Verhältnis 3:4 */
     overflow: hidden;
     border-radius: 40px;
-    margin: 0 auto; /* Zentrierung */
+    margin: 20px 0; /* Abstand über und unter dem Bild */
 }
 
 /* Das Bild im Hochformat */
@@ -437,11 +474,17 @@ main {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Fortschrittsbalken (Abstand erhöhen) */
+.progress-bar {
+    margin-bottom: 30px; /* Abstand zum Bild */
+}
+
 /* Text-Container */
 .highlight-text {
     text-align: center;
     width: 100%;
-    padding: 20px;
+    padding: 10px; /* Weniger Padding für engeren Abstand */
+    margin-top: -20px; /* Reduzierter Abstand zum Bild */
 }
 
 /* Call-to-Action Styling */
@@ -489,30 +532,10 @@ main {
 
 
 
-/* Mobile: Standardgröße */
-.about-image {
-    width: 300px; /* Breite für mobile Geräte */
-    height: 300px; /* Höhe für mobile Geräte */
-    object-fit: cover;
-    border-radius: 100%; /* Runde Form */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
-/* Tablet: Etwas größeres Bild */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .about-image {
-        width: 400px; /* Breitere Bildgröße für Tablets */
-        height: 400px;
-    }
-}
 
-/* Laptop/Desktop: Deutlich größeres Bild */
-@media (min-width: 1025px) {
-    .about-image {
-        width: 500px; /* Breite für Laptops und größere Bildschirme */
-        height: 500px;
-    }
-}
+
+
 
 
 
@@ -812,45 +835,34 @@ main {
 }
 
 .call-to-action {
-    margin-top: 10px;
+    margin-top: 6px; /* Minimaler Abstand zum Text */
     text-align: center;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 10px 20px;
-    margin-top: 10px;
+    padding: 8px 16px; /* Kleinere Polsterung */
+    margin-top: 6px; /* Weniger Abstand zum vorherigen Text */
     background-color: #ffffff;
     color: rgb(0, 0, 0);
-    border-radius: 30px;
+    border-radius: 30px; /* Kleinere Rundung */
     border: 2px solid #000000;
-    font-size: 1em;
+    font-size: 1em; /* Standard-Schriftgröße */
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px; /* Dezentes Letter-Spacing */
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button:hover {
     background-color: #5C835C;
     color: #fff;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.3);
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* Responsive Design */
 @media (max-width: 1200px) {
@@ -861,16 +873,17 @@ main {
     .new-badge {
         width: 60px;
         height: 60px;
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 
     .content-section h1 {
-        font-size: 1.4em;
+        font-size: 1.3em;
     }
 
     .cta-button {
-        font-size: 0.9em;
-        padding: 8px 16px;
+        font-size: 1.05em; /* Leichte Vergrößerung */
+        padding: 10px 20px; /* Etwas mehr Polsterung */
+        margin-top: 6px;
     }
 }
 
@@ -887,17 +900,18 @@ main {
     .new-badge {
         width: 50px;
         height: 50px;
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .content-section h1 {
-        font-size: 1.2em;
+        font-size: 1.15em;
         line-height: 1.4;
     }
 
     .cta-button {
-        font-size: 0.8em;
-        padding: 6px 12px;
+        font-size: 0.95em; /* Ein kleines bisschen kleiner für Mobil */
+        padding: 11px 20px; /* Wenig kleinere Polsterung */
+        margin-top: 6px;
     }
 }
 
@@ -923,18 +937,8 @@ main {
     }
 
     .cta-button {
-        font-size: 0.7em;
-        padding: 5px 10px;
+        font-size: 0.9em; /* Noch kleiner für Mobil */
+        padding: 8px 16px; /* Etwas weniger Polsterung */
+        margin-top: 6px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
