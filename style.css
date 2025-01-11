@@ -65,6 +65,7 @@ main {
         width: 100%; /* Bild füllt die Breite */
         max-width: 800px; /* Maximale Breite, um es nicht zu groß zu machen */
         height: auto;
+        max-height: 600px;
         margin-bottom: 10px; /* Minimaler Abstand unter dem Bild */
     }
 
@@ -77,13 +78,15 @@ main {
     .text-wrapper {
         padding: 10px; /* Weniger Innenabstand */
         margin-top: -10px; /* Negativer Abstand, um näher an das Bild zu rücken */
+        max-width: 80%; /* Reduzierte Breite für einen früheren Umbruch */
     }
 
     /* Überschrift-Anpassungen */
     .content-section h1 {
         margin-top: 5px; /* Weniger Abstand oberhalb */
         margin-bottom: 5px; /* Weniger Abstand unterhalb */
-        font-size: 1.2em; /* Optional: etwas kleinere Schrift */
+        font-size: 2.2em; /* Optional: etwas kleinere Schrift */
+        line-height: 1.8;
     }
 }
 
@@ -131,6 +134,8 @@ main {
         width: 50%; /* Text nimmt 50% der Breite ein */
         padding: 40px; /* Mehr Innenabstand für Tablet/Desktop */
         text-align: center; /* Text bleibt zentriert */
+        position: relative;
+        top: -50px; /* Text nach oben verschieben */
     }
 }
 
@@ -144,6 +149,8 @@ main {
 
     .text-wrapper {
         padding: 50px; /* Zusätzlicher Innenabstand */
+        position: relative;
+        top: -50px; /* Text nach oben verschieben */
     }
 }
 
@@ -186,7 +193,7 @@ main {
 /* Slider */
 .slider {
     display: flex;
-    gap: 10px; /* Weniger Abstand zwischen den Slider-Items */
+    gap: 15px; /* Weniger Abstand zwischen den Slider-Items */
     overflow-x: auto; /* Ermöglicht horizontales Scrollen */
     scroll-behavior: smooth; /* Sanftes Scrollen */
     padding: 10px 0; /* Vertikaler Abstand innerhalb des Sliders */
@@ -195,11 +202,12 @@ main {
 
 /* Slider Items */
 .slider-item {
-    flex: 0 0 250px; /* Breite der Slider-Items */
+    flex: 0 0 200px; /* Breite der Slider-Items */
     text-align: center; /* Text zentrieren */
     border-radius: 10px; /* Runde Ecken */
     overflow: hidden; /* Überstehende Inhalte ausblenden */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+    padding: 20px; /* Mehr Innenabstand für den Text */
 }
 
 .slider-item img {
@@ -553,16 +561,16 @@ main {
 /* Interest Section */
 .interest-section {
     text-align: center;
-    padding: 60px 20px;
+    padding: 20px 20px 50px; /* Verringertes Padding oben (20px) und beibehaltenes Padding unten (50px) */
     background-color: #EAF3E6; /* Heller Grünton */
     font-family: 'Open Sans', sans-serif;
     margin-top: 50px; /* Abstand von vorherigen Sektionen */
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 /* Überschrift */
 .interest-section h2 {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: bold;
     color: #000; /* Schwarzer Text */
     margin-bottom: 20px; /* Abstand zur Eingabe */
@@ -643,7 +651,7 @@ main {
 /* Newsletter Section */
 .newsletter-section {
     text-align: center;
-    padding: 50px 20px; /* Mehr Abstand zum Bildschirmrand */
+    padding: 20px 20px 50px; /* Verringertes Padding oben (20px) und beibehaltenes Padding unten (50px) */
     font-family: 'Open Sans', sans-serif;
     background-color: #fff; /* Weißer Hintergrund */
     color: #000; /* Schwarzer Text */
