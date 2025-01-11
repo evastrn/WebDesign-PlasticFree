@@ -26,7 +26,7 @@ main {
 
 /* Das Bild */
 .responsive-image {
-    width: 300px; /* Standardgröße für Mobile */
+    width: 5000px; /* Standardgröße */
     height: auto;
     object-fit: cover;
     border-radius: 40px; /* Runde Ecken */
@@ -52,10 +52,38 @@ main {
     font-family: 'Open Sans', sans-serif; 
     font-size: 1.5em;
     color: #000000;
-    margin: 0 auto; /* Text mittig ausrichten */
+    margin: 20px auto; /* Standard-Abstand */
     line-height: 1.6;
 }
 
+/* Optimierung für Mobile */
+@media (max-width: 768px) {
+    /* Vergrößerung des Bildes */
+    .responsive-image {
+        width: 100%; /* Bild füllt die Breite */
+        max-width: 800px; /* Maximale Breite, um es nicht zu groß zu machen */
+        height: auto;
+        margin-bottom: 10px; /* Minimaler Abstand unter dem Bild */
+    }
+
+    /* Geringerer Abstand zwischen Bild und Text */
+    .image-content-wrapper {
+        gap: 5px; /* Minimaler Abstand zwischen Bild und Text */
+    }
+
+    /* Text näher an das Bild rücken */
+    .text-wrapper {
+        padding: 10px; /* Weniger Innenabstand */
+        margin-top: -10px; /* Negativer Abstand, um näher an das Bild zu rücken */
+    }
+
+    /* Überschrift-Anpassungen */
+    .content-section h1 {
+        margin-top: 5px; /* Weniger Abstand oberhalb */
+        margin-bottom: 5px; /* Weniger Abstand unterhalb */
+        font-size: 1.2em; /* Optional: etwas kleinere Schrift */
+    }
+}
 
 /* Teaser-Text Styling */
 .teaser-text {
@@ -113,8 +141,6 @@ main {
         padding: 50px; /* Zusätzlicher Innenabstand */
     }
 }
-
-
 
 
 
@@ -365,7 +391,7 @@ main {
 
 
 
-/* Styling für den Highlight-Bereich */
+/* Basis-Styles (Mobile-First) */
 .highlight-section {
     display: flex;
     flex-direction: column;
@@ -374,71 +400,123 @@ main {
     text-align: center;
 }
 
-/* Wrapper für Bild und Button */
+/* Wrapper für Bild und Text */
 .highlight-wrapper {
-    position: relative; /* Container für Bild und Badge */
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     width: 100%;
-    max-width: 500px; /* Maximale Breite */
-    margin-bottom: 20px;
+    max-width: 1200px;
 }
 
-/* Container für das Bild */
+/* Bild-Container (Hochformat mit fester Proportion) */
 .highlight-image-container {
-    display: inline-block;
-    width: 100%;
-    height: auto; /* Höhe wird dynamisch angepasst */
+    position: relative;
+    width: 80%; /* Bild nimmt 80% der Breite des Containers ein */
+    aspect-ratio: 3 / 4; /* Hochformat: Breite zu Höhe im Verhältnis 3:4 */
     overflow: hidden;
     border-radius: 40px;
-    margin-top: 50px;
-    aspect-ratio: 3 / 4; /* Seitenverhältnis für Hochformat */
+    margin: 0 auto; /* Zentrierung */
 }
 
-/* Das Bild */
+/* Das Bild im Hochformat */
 .highlight-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Bild füllt den Container proportional */
+    object-fit: cover; /* Das Bild wird zugeschnitten, um das Hochformat zu erfüllen */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover-Effekt für das Bild */
 .highlight-image-container:hover .highlight-image {
-    transform: scale(1.05); /* Bild zoomt bei Hover */
+    transform: scale(1.05);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Der "WOW"-Badge */
-.highlight-badge {
-    position: absolute;
-    top: 10px; /* Button leicht über dem Container */
-    right: 360px;
-    background-color: #5C835C;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.4em;
-    font-weight: bold;
+/* Text-Container */
+.highlight-text {
     text-align: center;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2; /* Badge bleibt sichtbar */
-}
-
-/* Hover-Effekt für den Badge */
-.highlight-image-container:hover .highlight-badge {
-    z-index: 3;
-    transform: none;
+    width: 100%;
+    padding: 20px;
 }
 
 /* Call-to-Action Styling */
-.call-to-action {
-    margin-top: 10px; /* Reduzierter Abstand zwischen Text und Button */
+.highlight-cta {
+    margin-top: 20px;
     text-align: center;
 }
+
+/* Responsive Anpassungen für größere Bildschirme (Tablet und Laptop) */
+@media (min-width: 768px) {
+    .highlight-wrapper {
+        flex-direction: row; /* Bild und Text nebeneinander */
+        gap: 40px;
+    }
+
+    .highlight-image-container {
+        max-width: 50%; /* Bild nimmt 50% der Breite ein */
+        margin-left: 40px;
+    }
+
+    .highlight-text {
+        max-width: 50%; /* Text nimmt 50% der Breite ein */
+        padding: 40px;
+    }
+}
+
+/* Größere Bildschirme */
+@media (min-width: 1200px) {
+    .highlight-wrapper {
+        max-width: 1200px;
+        padding: 60px;
+    }
+
+    .highlight-image-container {
+        max-width: 60%; /* Bild nimmt etwas mehr Platz ein */
+        margin-left: 40px;
+    }
+
+    .highlight-text {
+        max-width: 40%; /* Text nimmt weniger Platz ein */
+        padding: 50px;
+    }
+}
+
+
+
+
+/* Mobile: Standardgröße */
+.about-image {
+    width: 300px; /* Breite für mobile Geräte */
+    height: 300px; /* Höhe für mobile Geräte */
+    object-fit: cover;
+    border-radius: 100%; /* Runde Form */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablet: Etwas größeres Bild */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .about-image {
+        width: 400px; /* Breitere Bildgröße für Tablets */
+        height: 400px;
+    }
+}
+
+/* Laptop/Desktop: Deutlich größeres Bild */
+@media (min-width: 1025px) {
+    .about-image {
+        width: 500px; /* Breite für Laptops und größere Bildschirme */
+        height: 500px;
+    }
+}
+
+
+
+
 
 
 
@@ -860,29 +938,3 @@ main {
 
 
 
-
-
-/* Mobile: Standardgröße */
-.about-image {
-    width: 300px; /* Breite für mobile Geräte */
-    height: 300px; /* Höhe für mobile Geräte */
-    object-fit: cover;
-    border-radius: 100%; /* Runde Form */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Tablet: Etwas größeres Bild */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .about-image {
-        width: 400px; /* Breitere Bildgröße für Tablets */
-        height: 400px;
-    }
-}
-
-/* Laptop/Desktop: Deutlich größeres Bild */
-@media (min-width: 1025px) {
-    .about-image {
-        width: 500px; /* Breite für Laptops und größere Bildschirme */
-        height: 500px;
-    }
-}
