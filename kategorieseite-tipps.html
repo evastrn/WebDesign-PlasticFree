@@ -8,24 +8,27 @@
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="header.css"> 
     <script src="main.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body class="kategorie-tipps">
     <!-- Header -->
     <header>
+        <!-- Logo in der Mitte -->
         <div class="logo">
             <a href="index.html"> 
-            <img src="Images/Logo.png" alt="Plastic Free Logo">
-        </a>
+                <img src="Images/Logo.png" alt="Plastic Free Logo">
+            </a>
         </div>
+        
+        <!-- Burger-Menü rechts -->
         <div class="burger-menu">
             <span></span>
             <span></span>
             <span></span>
         </div>
     
-        <!-- Seitenmenü -->
+        <!-- Seitenmenü (für mobile Geräte) -->
         <div class="side-menu">
             <!-- Logo -->
             <div class="side-menu-logo">
@@ -34,26 +37,12 @@
         
             <!-- Menü-Links -->
             <ul class="side-menu-links">
-                <li>
-                    <a href="index.html">Startseite</a>
-                </li>
-                <li>
-                    <a href="#kategorien">Kategorien</a>
-                    <span class="menu-plus">+</span>
-                </li>
-                <li>
-                    <a href="#ueber-mich">Über mich</a>
-                </li>
-                <li>
-                    <a href="#kontakt">Kontakt</a>
-                </li>
-                <li>
-                    <a href="#newsletter">Newsletter</a>
-                    <span class="menu-plus">+</span>
-                </li>
-                <li>
-                    <a href="#rechtliches">Rechtliches</a>
-                </li>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="#kategorien">Kategorien</a><span class="menu-plus">+</span></li>
+                <li><a href="#ueber-mich">Über mich</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#newsletter">Newsletter</a><span class="menu-plus">+</span></li>
+                <li><a href="#rechtliches">Rechtliches</a></li>
             </ul>
         
             <!-- Social Media Icons -->
@@ -64,8 +53,20 @@
                 <a href="#"><img src="Images/youtube.png" alt="YouTube"></a>
             </div>
         </div>
+    
+        <!-- Klassische Navigation für größere Geräte -->
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="#kategorien">Kategorien</a></li>
+                <li><a href="#ueber-mich">Über mich</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+                <li><a href="#rechtliches">Rechtliches</a></li>
+            </ul>
+        </nav>
     </header>
-
+    
     <!-- Hauptinhalt -->
     <main>
         <!-- Einleitung -->
@@ -76,7 +77,9 @@
         <!-- Tipps-Galerie -->
         <section class="tips-gallery">
             <div class="tip">
-                <img src="Images/Plastikfrei einkaufen.jpg" alt="Plastikfrei einkaufen">
+                <a href="Blogbeitrag-1.html"> 
+                    <img src="Images/Plastikfrei einkaufen.jpg" alt="Plastikfrei einkaufen">
+                </a>
                 <p>Mit diesen einfachen Tricks plastikfrei einkaufen</p>
             </div>
             <div class="tip">
