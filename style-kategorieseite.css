@@ -31,11 +31,12 @@ body.kategorie-tipps .tips-gallery {
     grid-template-columns: 1fr; /* Standard: Eine Spalte (mobile Ansicht) */
     gap: 50px; /* Erhöhter Abstand zwischen den Kacheln */
     padding: 20px;
+    margin: 0 20px; /* Abstand links und rechts vom Bildschirmrand */
 }
 
 body.kategorie-tipps .tips-gallery .tip {
     background-color: #ffffff; /* Weißer Hintergrund */
-    border-radius: 8px; /* Runde Ecken */
+    border-radius: 20px; /* Runde Ecken */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
     overflow: hidden; /* Überstehende Inhalte ausblenden */
     text-align: center; /* Text in der Mitte */
@@ -48,7 +49,7 @@ body.kategorie-tipps .tips-gallery .tip:hover {
 
 body.kategorie-tipps .tips-gallery .tip img {
     width: 100%; /* Bild passt sich der Breite des Containers an */
-    height: 400px; /* Einheitliche Höhe im Hochformat */
+    height: 350px; /* Einheitliche Höhe im Hochformat */
     object-fit: cover; /* Bild bleibt im Hochformat, ohne Verzerrung */
     object-position: center; /* Bild zentriert sich */
     border-bottom: 2px solid #EAF3E6; /* Dezente Linie */
@@ -91,24 +92,31 @@ body.kategorie-tipps .tips-gallery .tip p {
     transform-origin: left; /* Wächst von links nach rechts */
 }
 
-
-
-
-
 /* Responsive Design */
 
-/* Tablet-Version: Zwei Kacheln */
+/* Ab Tablet: Zwei Kacheln nebeneinander */
 @media (min-width: 768px) {
     body.kategorie-tipps .tips-gallery {
-        grid-template-columns: repeat(2, 1fr); /* Zwei Spalten */
-        gap: 30px; /* Abstand bleibt gleich */
+        grid-template-columns: repeat(2, 1fr); /* Zwei Kacheln nebeneinander */
     }
 }
 
-/* Laptop-Version: Vier Kacheln */
+/* Ab Laptop: Drei Kacheln nebeneinander */
 @media (min-width: 1024px) {
     body.kategorie-tipps .tips-gallery {
-        grid-template-columns: repeat(4, 1fr); /* Vier Spalten */
-        gap: 30px; /* Abstand bleibt gleich */
+        grid-template-columns: repeat(3, 1fr); /* Drei Kacheln nebeneinander */
+        margin: 0 50px; /* Mehr Abstand links und rechts */
+    }
+
+    body.kategorie-tipps .tips-gallery .tip img {
+        height: 300px; /* Verkleinerte Bildhöhe für Laptop-Ansicht */
+    }
+}
+
+/* Ab größerem Bildschirm: Vier Kacheln nebeneinander */
+@media (min-width: 1400px) {
+    body.kategorie-tipps .tips-gallery {
+        grid-template-columns: repeat(4, 1fr); /* Vier Kacheln nebeneinander */
+        margin: 0 80px; /* Größerer Abstand links und rechts */
     }
 }

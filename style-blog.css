@@ -1,260 +1,162 @@
-/* Inhalt unter dem Bild */
-.content-section {
-    text-align: center;
-    padding: 1%;
-    margin-top: 60px; /* Abstand zum Header-Bereich */
+/* Allgemeine Einstellungen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'open-sans', sans-serif;
 }
 
-/* Blogtitel Styling */
-.content-section h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 2em;                      /* Größe des Titels */
-    color: #000000;
-    max-width: 600px;
-    margin: 0 auto;
+/* Grundlegendes Layout */
+body {
+    color: #000;
     line-height: 1.6;
-    margin-bottom: 20px;                  /* Abstand nach unten zum Bild */
 }
 
-/* Bild Styling */
-.blog-image {
-    width: 100%;
-    max-width: 500px;
-    height: 600px;
-    object-fit: cover;
-    border-radius: 40px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: inline-block;
-}
-
-/* Slider Section */
-.slider-section {
+/* Header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
     text-align: center;
-    margin: 80px 0;
-    font-family: 'Open Sans', sans-serif;
 }
 
-/* Überschrift */
-.slider-section h2 {
-    color: #5C835C;
-    font-size: 1.5em;
-    margin-bottom: 30px;
-    line-height: 1.4; /* Angenehme Lesbarkeit */
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
 }
 
-/* Slider Container */
-.slider-container {
-    position: relative;
-    overflow: hidden; /* Verhindert Überlauf von Slider-Elementen */
-    width: 100%;
-    max-width: 900px; /* Maximale Breite für größere Bildschirme */
-    margin: 0 auto; /* Zentrierung */
-    padding-bottom: 20px; /* Abstand zum Fortschrittsbalken */
-}
-
-/* Slider */
-.slider {
-    display: flex;
-    gap: 20px; /* Abstand zwischen den Slider-Items */
-    overflow-x: auto; /* Ermöglicht horizontales Scrollen */
-    scroll-behavior: smooth; /* Sanftes Scrollen */
-    padding: 10px 0; /* Vertikaler Abstand innerhalb des Sliders */
-}
-
-.slider::-webkit-scrollbar {
-    display: none; /* Versteckt den Scrollbar */
-}
-
-/* Slider Items */
-.slider-item {
-    flex: 0 0 auto; /* Kein automatisches Vergrößern */
-    width: 250px; /* Breite der Bilder */
-    text-align: center; /* Text zentrieren */
-    border-radius: 10px; /* Runde Ecken */
-    overflow: hidden; /* Überstehende Inhalte ausblenden */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
-}
-
-/* Bilder */
-.slider-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover; /* Zuschneiden des Bildes, ohne Verzerrung */
-    border-radius: 10px; /* Runde Ecken des Bildes */
-}
-
-/* Slider-Bild-Beschriftungen */
-.slider-caption {
-    margin-top: 10px; /* Abstand zwischen Bild und Text */
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em; /* Schriftgröße */
-    color: #333; /* Textfarbe */
-    line-height: 1.5; /* Angenehme Zeilenhöhe */
-    max-width: 230px; /* Maximale Breite der Beschriftung */
-    margin: 10px auto 0; /* Zentriert den Text */
-    text-align: center; /* Textausrichtung */
-}
-
-/* Fortschrittsbalken */
-.progress-bar-container {
-    width: 100%;
-    max-width: 900px;
-    margin: 10px auto;
-    height: 5px;
-    background-color: #e0e0e0; /* Hellgrauer Hintergrund */
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background-color: #5C835C; /* Grüne Farbe */
-    width: 10%; /* Startwert bei 10% */
-    transition: width 0.3s ease-in-out;
-}
-
-
-/* Weißer Bereich für Button */
-.button-container {
-    position: relative; /* Position innerhalb des Abschnitts */
-    margin-top: 20px; /* Abstand zum Fortschrittsbalken */
-    text-align: center; /* Zentriert den Button horizontal */
-    height: 80px; /* Weißer Bereich für den Button */
-    display: none; /* Button standardmäßig versteckt */
-    background-color: white; /* Weißer Hintergrund */
-}
-
-.button-container.visible {
-    display: flex; /* Zeigt den Button an */
-    justify-content: center; /* Zentriert horizontal */
-    align-items: center; /* Zentriert vertikal */
-}
-
-/* Button Styling */
-.category-button {
-    display: inline-block;
-    padding: 10px 20px; /* Innenabstand des Buttons */
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em; /* Schriftgröße */
-    font-weight: bold; /* Fettschrift */
-    text-transform: uppercase; /* Text in Großbuchstaben */
-    color: white; /* Textfarbe */
-    background-color: #5C835C; /* Grüner Hintergrund */
-    border: none; /* Kein Rahmen */
-    border-radius: 25px; /* Runde Ecken */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
-    text-decoration: none; /* Entfernt Unterstreichung */
-    cursor: pointer; /* Zeigt eine Hand beim Hover */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Animationen */
-}
-
-.category-button:hover {
-    background-color: #4A6A4A; /* Dunkleres Grün beim Hover */
-    transform: scale(1.05); /* Leichte Vergrößerung */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* Blogbeitrag */
-.content-section {
-    max-width: 900px; /* Maximale Breite für den Inhalt */
-    margin: 0 auto; /* Zentriert den Inhalt horizontal */
-    padding: 0 50px; /* Fügt 50px Abstand auf beiden Seiten hinzu */
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.8; /* Verbesserung der Lesbarkeit */
-    text-align: left; /* Text linksbündig ausrichten */
+/* Blogbereich */
+main {
+    width: 80%;
+    margin: 40px auto;
+    max-width: 1200px;
 }
 
 /* Blogtitel */
 .blog-title {
-    font-size: 2em; /* Größere Schrift für den Titel */
-    font-weight: 600;
-    color: #5C835C; /* Passende Farbe für den Titel */
-    margin-bottom: 20px; /* Abstand zum Text */
-    text-align: left; /* Titel linksbündig */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Bildbereich */
+.blog-image-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.blog-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 /* Blogtext */
 .blog-text {
-    font-size: 1.1em;
-    color: #333; /* Dunkle Textfarbe für bessere Lesbarkeit */
-    margin-bottom: 20px; /* Abstand zwischen Absätzen */
-    text-align: left; /* Text linksbündig */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
 }
 
-/* Stil für Absätze */
 .blog-text p {
-    margin-bottom: 20px; /* Abstand zwischen den Absätzen */
+    font-size: 1rem;
+    color: #000;
+    margin-bottom: 20px;
 }
 
-/* Bild im Text (mit Textumfluss) */
-.blog-text img {
-    width: 100%; /* Bild nimmt volle Breite des Containers ein */
-    max-width: 600px; /* Maximale Breite für das Bild */
-    height: auto; /* Erhält das Seitenverhältnis des Bildes */
-    border-radius: 10px; /* Runde Ecken für das Bild */
-    margin: 20px 0; /* Abstand zum Text oben und unten */
-    display: block; /* Macht das Bild block-level */
+.blog-text strong {
+    font-weight: bold;
+    color: #e74c3c;
 }
 
-/* Die Buttons am Ende des Blogbeitrags */
-.blog-actions {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.blog-actions .icon {
-    font-size: 2em;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.blog-actions .icon:hover {
-    transform: scale(1.2);
-}
-
-/* Slider-Bereich Styling */
-.slider-section {
-    margin-top: 40px;
-    text-align: center;
-}
-
-.slider-section h2 {
-    font-size: 1.5em;
-    color: #5C835C;
-    margin-bottom: 30px;
-}
-
-.slider-item {
-    display: inline-block;
-    width: 250px;
-    margin: 10px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.slider-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.slider-caption {
-    padding: 10px;
-    font-size: 1em;
-    color: #333;
+/* Kommentarbereich */
+.comment-section {
     background-color: #fff;
-    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comment-section h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-form .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+    width: 48%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.comment-form textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+.comment-form label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.comment-form button {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.comment-form button:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        width: 95%;
+    }
+
+    .blog-title {
+        font-size: 1.5rem;
+    }
+
+    .blog-text {
+        padding: 15px;
+    }
+
+    .blog-image {
+        margin-bottom: 15px;
+    }
+
+    .comment-form .form-row {
+        flex-direction: column;
+    }
+
+    .comment-form .form-row input[type="text"],
+    .comment-form .form-row input[type="email"] {
+        width: 100%;
+    }
 }
