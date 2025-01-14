@@ -15,7 +15,8 @@ main {
     gap: 10px; /* Weniger Abstand zwischen Bild und Text */
     width: 100%;
     max-width: 1200px; /* Maximale Breite für den gesamten Bereich */
-    margin-bottom: 20px; /* Reduzierter Abstand unter dem gesamten Bereich */
+    margin-bottom: 0; /* Reduziert den Abstand nach unten */
+    padding-bottom: 0; /* Reduziert den Innenabstand nach unten */
 }
 
 /* Bild-Wrapper */
@@ -27,14 +28,15 @@ main {
 
 /* Das Bild */
 .responsive-image {
-    width: 1000px; /* Standardbreite */
-    height: auto;
+    width: 100%; /* Bild nimmt immer 100% der Container-Breite ein */
+    height: auto; /* Die Höhe wird automatisch angepasst */
     max-height: 400px; /* Maximale Höhe für größere Bildschirme */
     object-fit: cover; /* Bild wird zugeschnitten, um die Proportionen zu wahren */
     border-radius: 40px; /* Runde Ecken */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionaler Schatten */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .image-container:hover .responsive-image {
     transform: scale(1.05); /* Leichtes Zoomen beim Hover */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
@@ -58,15 +60,13 @@ main {
     line-height: 1.6;
 }
 
-/* Optimierung für Mobile */
 @media (max-width: 768px) {
-    /* Vergrößerung des Bildes */
+    /* Vergrößerung des Bildes in der mobilen Ansicht */
     .responsive-image {
-        width: 100%; /* Bild füllt die Breite */
-        max-width: 800px; /* Maximale Breite, um es nicht zu groß zu machen */
-        height: auto;
-        max-height: 600px;
-        margin-bottom: 10px; /* Minimaler Abstand unter dem Bild */
+        width: 100%; /* Bild nimmt die volle Breite ein */
+        max-width: none; /* Keine maximale Breite für mobile Ansicht */
+        max-height: 700px; /* Maximale Höhe in der mobilen Ansicht */
+        margin-bottom: 5px; /* Minimaler Abstand unter dem Bild */
     }
 
     /* Geringerer Abstand zwischen Bild und Text */
@@ -78,7 +78,7 @@ main {
     .text-wrapper {
         padding: 10px; /* Weniger Innenabstand */
         margin-top: -10px; /* Negativer Abstand, um näher an das Bild zu rücken */
-        max-width: 80%; /* Reduzierte Breite für einen früheren Umbruch */
+        max-width: 85%; /* Breitere Textfläche */
     }
 
     /* Überschrift-Anpassungen */
@@ -89,6 +89,9 @@ main {
         line-height: 1.8;
     }
 }
+
+
+
 
 /* Teaser-Text Styling */
 .teaser-text {
@@ -128,7 +131,7 @@ main {
     .responsive-image {
         width: 400px; /* Verkleinerte Breite */
         height: auto;
-        max-height: 400px; /* Begrenzung der Höhe */
+        max-height: 600px; /* Begrenzung der Höhe */
     }
 
     .text-wrapper {
@@ -136,7 +139,7 @@ main {
         padding: 40px; /* Mehr Innenabstand für Tablet/Desktop */
         text-align: center; /* Text bleibt zentriert */
         position: relative;
-        top: -50px; /* Text nach oben verschieben */
+        top: -30px; /* Text nach oben verschieben */
     }
 }
 
@@ -146,13 +149,13 @@ main {
     .responsive-image {
         width: 500px; /* Größere Breite für Laptop/Desktop */
         height: auto;
-        max-height: 550px; /* Begrenzte Höhe für größere Bildschirme */
+        max-height: 520px; /* Begrenzte Höhe für größere Bildschirme */
     }
 
     .text-wrapper {
         padding: 50px; /* Zusätzlicher Innenabstand */
         position: relative;
-        top: -50px; /* Text nach oben verschieben */
+        top: -60px; /* Text nach oben verschieben */
     }
 }
 
@@ -165,7 +168,7 @@ main {
 
 
 
-/* Abstand zwischen Haupt-Sektionen */
+
 .slider-section {
     text-align: center;
     margin: 50px auto; /* Geringerer Abstand zur vorherigen Sektion */
@@ -778,7 +781,7 @@ main {
     display: inline-block;
     width: 100%;
     max-width: 500px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .image-container {
@@ -900,9 +903,9 @@ main {
     }
 
     .new-badge {
-        width: 50px;
-        height: 50px;
-        font-size: 0.9em;
+        width: 60px;
+        height: 60px;
+        font-size: 1.0em;
     }
 
     .content-section h1 {
@@ -919,7 +922,7 @@ main {
 
 @media (max-width: 480px) {
     .image-wrapper {
-        max-width: 250px;
+        max-width: 300px;
     }
 
     .image-container {
@@ -928,9 +931,9 @@ main {
     }
 
     .new-badge {
-        width: 40px;
-        height: 40px;
-        font-size: 0.8em;
+        width: 50px;
+        height: 50px;
+        font-size: 0.9em;
     }
 
     .content-section h1 {
