@@ -329,6 +329,7 @@ main {
 /* Persönlicher Abschnitt */
 .about-section {
     margin-top: 50px; /* Beibehaltung des äußeren Abstands */
+    margin-bottom: 60px;
     font-family: 'Open Sans', sans-serif;
     padding: 20px; /* Innenabstand bleibt unverändert */
 }
