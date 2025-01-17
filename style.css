@@ -195,6 +195,7 @@ main {
     scroll-behavior: smooth; /* Sanftes Scrollen */
     padding: 10px 0; /* Vertikaler Abstand innerhalb des Sliders */
     transition: none; /* Keine Übergangseffekte für das Scrollen */
+    scroll-snap-type: x mandatory; /* Snap-Verhalten aktivieren */
 }
 
 /* Slider Items */
@@ -214,6 +215,7 @@ main {
     border-radius: 20px; /* Runde Ecken des Bildes */
     transition: transform 0s ease; /* Keine Verzögerung für das Bild */
     will-change: transform; /* Optimierung für bewegte Bilder */
+    scroll-snap-align: start; /* Snap-Punkt an den Anfang jedes Elements */
 }
 
 .slider::-webkit-scrollbar {

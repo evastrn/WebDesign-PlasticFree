@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let isDragging = false;
         let startX = 0;
         let scrollLeft = 0;
+        let swipeThreshold = 50; // Mindest-Swipe-Distanz, um zu scrollen
 
         const calculateMaxScrollLeft = () => slider.scrollWidth - slider.clientWidth;
         const calculateSlideWidth = () => slider.querySelector('.slider-item').offsetWidth;
@@ -31,6 +32,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
+        // Automatisches Snap-to-Item
+        const snapToClosestSlide = () => {
+            const slideWidth = calculateSlideWidth();
+            const scrollPosition = slider.scrollLeft;
+            const closestSlide = Math.round(scrollPosition / slideWidth);
+            slider.scrollTo({
+                left: closestSlide * slideWidth,
+                behavior: "smooth",
+            });
+        };
+
         // Drag-Start-Ereignis
         const startDragging = (e) => {
             isDragging = true;
@@ -45,14 +57,22 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault(); // Verhindert das Standardverhalten
             const x = e.pageX || e.touches[0].pageX;
             const distance = x - startX;
-            slider.scrollLeft = scrollLeft - distance;
-            requestAnimationFrame(updateProgressBar); // Fortschrittsbalken flüssiger aktualisieren
+
+            // Nur scrollen, wenn die Swipe-Distanz über dem Schwellenwert liegt
+            if (Math.abs(distance) > swipeThreshold) {
+                slider.scrollLeft = scrollLeft - distance;
+                requestAnimationFrame(updateProgressBar);
+            }
         };
 
         // Dragging stoppen
         const stopDragging = () => {
+            if (!isDragging) return;
             isDragging = false;
             slider.style.cursor = "grab";
+
+            // Snap-to-Item aufrufen
+            snapToClosestSlide();
         };
 
         // Event-Listener für Scroll und Dragging
@@ -71,10 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
         updateProgressBar();
     });
 });
-
-
-
-
 
 
 
