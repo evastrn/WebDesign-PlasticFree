@@ -196,6 +196,8 @@ main {
     padding: 10px 0; /* Vertikaler Abstand innerhalb des Sliders */
     transition: none; /* Keine Übergangseffekte für das Scrollen */
     scroll-snap-type: x mandatory; /* Snap-Verhalten aktivieren */
+
+    will-change: transform;
 }
 
 /* Slider Items */
