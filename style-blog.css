@@ -8,21 +8,7 @@
 
 /* Grundlegendes Layout */
 body {
-    color: #000;
     line-height: 1.6;
-}
-
-/* Header */
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    letter-spacing: 1px;
 }
 
 /* Blogbereich */
@@ -36,10 +22,11 @@ main {
 .blog-title {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #2c3e50;
+    color: #000;
+    text-align: center; /* Zentriert die Überschrift */
 }
 
-/* Bildbereich */
+/* Standard-Desktop-Ansicht */
 .blog-image-container {
     width: 100%;
     margin-bottom: 20px;
@@ -48,8 +35,26 @@ main {
 .blog-image {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 40px; /* Immer ein abgerundeter Rand */
 }
+
+/* Mobile-Version */
+@media (max-width: 768px) {
+    .blog-image-container {
+        padding: 0 10px; /* Gleichmäßiger Abstand links und rechts */
+        margin-bottom: 20px;
+    }
+
+    .blog-image {
+        width: 100%; /* Breite passt sich an den Container an */
+        height: 70vh; /* Hochformat-Stil */
+        object-fit: cover; /* Füllt den sichtbaren Bereich proportional */
+        border-radius: 40px; /* Beibehaltung der abgerundeten Ecken */
+    }
+}
+
+
+
 
 /* Blogtext */
 .blog-text {
@@ -65,8 +70,10 @@ main {
 }
 
 .blog-text strong {
-    font-weight: bold;
-    color: #e74c3c;
+    font-size: 1.1rem;
+    color: #5C835C;
+    display: block;
+    margin-top: 20px;
 }
 
 /* Kommentarbereich */
@@ -76,17 +83,27 @@ main {
     border-radius: 8px;
     margin-top: 40px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
 }
 
-.comment-section h2 {
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
+.comment-section h2.comment-title {
+    font-size: 2.0rem; /* Größerer Text für die Hauptüberschrift */
+    color: #000;
+    text-align: center; /* Zentriert die Hauptüberschrift */
+    margin-bottom: 10px; /* Abstand zur Unterüberschrift */
+}
+
+.comment-section h3.comment-subtitle {
+    font-size: 1.25rem; /* Kleinere Schriftgröße für die Unterüberschrift */
+    color: #333; /* Etwas hellere Farbe für die Unterüberschrift */
+    text-align: center; /* Zentriert die Unterüberschrift */
+    margin-bottom: 20px; /* Abstand zum Formular */
 }
 
 .comment-form {
     display: flex;
     flex-direction: column;
+    
 }
 
 .comment-form .form-row {
@@ -102,8 +119,8 @@ main {
     width: 48%;
     padding: 10px;
     font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
     margin-bottom: 10px;
     background-color: #f9f9f9;
 }
@@ -115,22 +132,27 @@ main {
 
 .comment-form label {
     font-size: 0.9rem;
-    color: #555;
+    color: #000;
 }
 
 .comment-form button {
-    padding: 10px 20px;
-    background-color: #e74c3c;
+    width: 250px; /* Feste Breite, z. B. 150px */
+    text-align: center; /* Text zentrieren */
+    padding: 10px; /* Innenabstand bleibt komfortabel */
+    background-color: #5C835C;
     color: white;
-    border: none;
-    border-radius: 4px;
+    border: 2px;
+    border-radius: 25px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 20px auto 0; /* Zentriert den Button horizontal und gibt ihm einen Abstand nach oben */
 }
 
 .comment-form button:hover {
-    background-color: #c0392b;
+    background-color: #5C835C;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
 }
 
 /* Responsive Design */
@@ -160,3 +182,161 @@ main {
         width: 100%;
     }
 }
+
+
+
+.slider-section {
+    text-align: center;
+    margin: 50px auto; /* Geringerer Abstand zur vorherigen Sektion */
+    font-family: 'Open Sans', sans-serif;
+    padding: 0 10px; /* Weniger Innenabstand */
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto; /* Abstand minimiert */
+    padding-bottom: 10px; /* Weniger vertikaler Abstand */
+    scroll-snap-type: x mandatory; /* Aktiviert Snap-Verhalten */
+}
+
+/* Slider */
+.slider {
+    display: flex;
+    gap: 15px; /* Weniger Abstand zwischen den Slider-Items */
+    overflow-x: auto; /* Ermöglicht horizontales Scrollen */
+    scroll-behavior: smooth; /* Sanftes Scrollen */
+    padding: 10px 0; /* Vertikaler Abstand innerhalb des Sliders */
+    transition: none; /* Keine Übergangseffekte für das Scrollen */
+    scroll-snap-type: x mandatory; /* Snap-Verhalten aktivieren */
+}
+
+/* Slider Items */
+.slider-item {
+    flex: 0 0 200px; /* Breite der Slider-Items */
+    text-align: center; /* Text zentrieren */
+    border-radius: 10px; /* Runde Ecken */
+    overflow: hidden; /* Überstehende Inhalte ausblenden */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+    padding: 20px; /* Mehr Innenabstand für den Text */
+}
+
+.slider-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Zuschneiden des Bildes, ohne Verzerrung */
+    border-radius: 20px; /* Runde Ecken des Bildes */
+    transition: transform 0s ease; /* Keine Verzögerung für das Bild */
+    will-change: transform; /* Optimierung für bewegte Bilder */
+    scroll-snap-align: start; /* Snap-Punkt an den Anfang jedes Elements */
+}
+
+.slider::-webkit-scrollbar {
+    display: none; /* Versteckt den Scrollbar */
+}
+
+/* Fortschrittsbalken für alle Slider-Sections */
+.slider-section .progress-bar-container {
+    width: calc(100% - 40px); /* Breite: Reduziert um 40px für Abstand */
+    margin: 0 auto; /* Zentriert die Fortschrittsleiste */
+    margin-top: 20px;
+    height: 5px; /* Höhe des Fortschrittsbalkens */
+    background-color: #e0e0e0; /* Hintergrundfarbe */
+    border-radius: 3px; /* Runde Ecken */
+    overflow: hidden; /* Nichts außerhalb sichtbar */
+}
+
+.slider-section .progress-bar {
+    height: 100%;
+    background-color: #5C835C; /* Grüne Farbe */
+    width: 10%; /* Startwert */
+    transition: width 0.3s ease-in-out;
+}
+
+/* Button Styling */
+.category-button-container {
+    text-align: center; /* Zentriert den Button horizontal */
+    margin-top: 50px; /* Abstand zum Slider */
+    display: none; /* Standardmäßig unsichtbar */
+}
+
+.category-button-container.visible {
+    display: block; /* Button wird sichtbar */
+}
+
+.category-button {
+    display: inline-block;
+    padding: 10px 20px; /* Innenabstand des Buttons */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em; /* Schriftgröße */
+    font-weight: bold; /* Fettschrift */
+    text-transform: uppercase; /* Text in Großbuchstaben */
+    color: white; /* Textfarbe */
+    background-color: #5C835C; /* Grüner Hintergrund */
+    border: none; /* Kein Rahmen */
+    border-radius: 25px; /* Runde Ecken */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+    text-decoration: none; /* Entfernt Unterstreichung */
+    cursor: pointer; /* Zeigt eine Hand beim Hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animationen */
+}
+
+.category-button:hover {
+    transform: scale(1.1); /* Vergrößerung beim Hover */
+    background-color: #4A6A4A; /* Dunkleres Grün beim Hover */
+}
+
+/* Responsive Design */
+@media (min-width: 600px) {
+    .slider-container {
+        max-width: 700px;
+    }
+
+    .slider-item {
+        flex: 0 0 40%;
+    }
+
+    .slider-caption {
+        font-size: 1.1em;
+        max-width: 300px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .slider-container {
+        max-width: 1000px;
+        padding-bottom: 40px;
+    }
+
+    .slider-item {
+        flex: 0 0 30%;
+    }
+
+    .progress-bar-container {
+        max-width: 1000px;
+    }
+
+    .category-button-container {
+        margin-top: 60px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .slider-container {
+        max-width: 1200px;
+    }
+
+    .slider-item {
+        flex: 0 0 25%;
+    }
+
+    .slider-caption {
+        font-size: 1.3em;
+    }
+}
+
+
+

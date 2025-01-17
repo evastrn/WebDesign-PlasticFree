@@ -6,45 +6,38 @@ document.addEventListener("DOMContentLoaded", () => {
     sliders.forEach((slider, index) => {
         const progressBar = progressBars[index];
         const buttonContainer = buttonContainers[index];
-
         let isDragging = false;
         let startX = 0;
         let scrollLeft = 0;
-        let swipeThreshold = 50; // Mindest-Swipe-Distanz, um zu scrollen
+        const swipeThreshold = 50; // Mindest-Swipe-Distanz
 
-        const calculateMaxScrollLeft = () => slider.scrollWidth - slider.clientWidth;
-        const calculateSlideWidth = () => slider.querySelector('.slider-item').offsetWidth;
+        // Berechnungsfunktionen
+        const getMaxScrollLeft = () => slider.scrollWidth - slider.clientWidth;
+        const getSlideWidth = () => slider.querySelector(".slider-item").offsetWidth;
 
         // Fortschrittsbalken aktualisieren
         const updateProgressBar = () => {
-            const maxScrollLeft = calculateMaxScrollLeft();
-            const scrollPosition = slider.scrollLeft;
-            const progressValue = (scrollPosition / maxScrollLeft) * 100;
-            progressBar.style.width = `${progressValue}%`;
-
-            const slideWidth = calculateSlideWidth();
+            const maxScroll = getMaxScrollLeft();
+            const scrollPos = slider.scrollLeft;
+            const progress = (scrollPos / maxScroll) * 100;
+            progressBar.style.width = `${progress}%`;
 
             // Button sichtbar ab dem 2. Slide
-            if (scrollPosition >= slideWidth) {
-                buttonContainer.classList.add("visible");
-            } else {
-                buttonContainer.classList.remove("visible");
-            }
+            buttonContainer.classList.toggle("visible", scrollPos >= getSlideWidth());
         };
 
-        // Automatisches Snap-to-Item
+        // Snap-to-Item-Funktion
         const snapToClosestSlide = () => {
-            const slideWidth = calculateSlideWidth();
-            const scrollPosition = slider.scrollLeft;
-            const closestSlide = Math.round(scrollPosition / slideWidth);
+            const slideWidth = getSlideWidth();
+            const closestSlide = Math.round(slider.scrollLeft / slideWidth);
             slider.scrollTo({
                 left: closestSlide * slideWidth,
                 behavior: "smooth",
             });
         };
 
-        // Drag-Start-Ereignis
-        const startDragging = (e) => {
+        // Dragging starten
+        const startDrag = (e) => {
             isDragging = true;
             startX = e.pageX || e.touches[0].pageX;
             scrollLeft = slider.scrollLeft;
@@ -52,13 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // Dragging während der Bewegung
-        const dragSlider = (e) => {
+        const drag = (e) => {
             if (!isDragging) return;
-            e.preventDefault(); // Verhindert das Standardverhalten
-            const x = e.pageX || e.touches[0].pageX;
-            const distance = x - startX;
+            const currentX = e.pageX || e.touches[0].pageX;
+            const distance = currentX - startX;
 
-            // Nur scrollen, wenn die Swipe-Distanz über dem Schwellenwert liegt
+            // Nur scrollen, wenn Schwellenwert überschritten wird
             if (Math.abs(distance) > swipeThreshold) {
                 slider.scrollLeft = scrollLeft - distance;
                 requestAnimationFrame(updateProgressBar);
@@ -66,32 +58,27 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // Dragging stoppen
-        const stopDragging = () => {
+        const stopDrag = () => {
             if (!isDragging) return;
             isDragging = false;
             slider.style.cursor = "grab";
-
-            // Snap-to-Item aufrufen
-            snapToClosestSlide();
+            snapToClosestSlide(); // Snap-to-Item
         };
 
-        // Event-Listener für Scroll und Dragging
-        slider.addEventListener("scroll", () => {
-            requestAnimationFrame(updateProgressBar);
-        });
-        slider.addEventListener("mousedown", startDragging);
-        slider.addEventListener("mousemove", dragSlider);
-        slider.addEventListener("mouseup", stopDragging);
-        slider.addEventListener("mouseleave", stopDragging);
-        slider.addEventListener("touchstart", startDragging);
-        slider.addEventListener("touchmove", dragSlider);
-        slider.addEventListener("touchend", stopDragging);
+        // Event-Listener für Scroll- und Drag-Ereignisse
+        slider.addEventListener("scroll", () => requestAnimationFrame(updateProgressBar));
+        slider.addEventListener("mousedown", startDrag);
+        slider.addEventListener("mousemove", drag);
+        slider.addEventListener("mouseup", stopDrag);
+        slider.addEventListener("mouseleave", stopDrag);
+        slider.addEventListener("touchstart", startDrag);
+        slider.addEventListener("touchmove", drag);
+        slider.addEventListener("touchend", stopDrag);
 
         // Fortschrittsbalken initialisieren
         updateProgressBar();
     });
 });
-
 
 
 
