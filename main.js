@@ -10,9 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let isDragging = false;
         let startX = 0;
         let scrollLeft = 0;
-        let swipeThreshold = 50; // Mindest-Swipe-Distanz, um zu scrollen
-        let lastScrollUpdateTime = 0; // Für Throttling der Aktualisierungen
-        let throttleInterval = 16; // 60 FPS (16ms)
+        let swipeThreshold = 50;
+        let lastScrollPosition = 0;  // Vorherige Scroll-Position
+        let throttleInterval = 16;   // 60 FPS
+        let lastMoveTime = 0;        // Für Throttling von Bewegungen
 
         const calculateMaxScrollLeft = () => slider.scrollWidth - slider.clientWidth;
         const calculateSlideWidth = () => slider.querySelector('.slider-item').offsetWidth;
@@ -25,8 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
             progressBar.style.width = `${progressValue}%`;
 
             const slideWidth = calculateSlideWidth();
-
-            // Button sichtbar ab dem 2. Slide
             if (scrollPosition >= slideWidth) {
                 buttonContainer.classList.add("visible");
             } else {
@@ -57,15 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const dragSlider = (e) => {
             if (!isDragging) return;
             e.preventDefault(); // Verhindert das Standardverhalten
+
             const x = e.pageX || e.touches[0].pageX;
             const distance = x - startX;
 
-            // Throttling der Updates
+            // Throttling der Bewegungen für bessere Performance
             const now = Date.now();
-            if (now - lastScrollUpdateTime >= throttleInterval) {
-                slider.scrollLeft = scrollLeft - distance;
-                lastScrollUpdateTime = now;
-                updateProgressBar();
+            if (now - lastMoveTime >= throttleInterval) {
+                // Scrollen mit transform: translateX
+                const newScrollLeft = scrollLeft - distance;
+                slider.style.transform = `translateX(${newScrollLeft}px)`; // Verschieben mit transform
+                lastMoveTime = now;
             }
         };
 
@@ -74,17 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!isDragging) return;
             isDragging = false;
             slider.style.cursor = "grab";
-
-            // Snap-to-Item aufrufen
             snapToClosestSlide();
         };
 
-        // Event-Listener für Scroll und Dragging
+        // Event-Listener für Touch- und Mouse-Events
         slider.addEventListener("scroll", () => {
-            requestAnimationFrame(updateProgressBar);
+            updateProgressBar();
         });
 
-        // Setze passive Event-Listener für Touch-Events, um Performance zu verbessern
         slider.addEventListener("mousedown", startDragging);
         slider.addEventListener("mousemove", dragSlider);
         slider.addEventListener("mouseup", stopDragging);
