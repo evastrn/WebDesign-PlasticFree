@@ -220,7 +220,6 @@ main {
     display: none; /* Versteckt den Scrollbar */
 }
 
-
 /* Fortschrittsbalken für alle Slider-Sections */
 .slider-section .progress-bar-container {
     width: calc(100% - 40px); /* Breite: Reduziert um 40px für Abstand */
