@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let startX = 0;
         let scrollLeft = 0;
         let swipeThreshold = 50; // Mindest-Swipe-Distanz, um zu scrollen
+        let lastScrollUpdateTime = 0; // Für Throttling der Aktualisierungen
+        let throttleInterval = 16; // 60 FPS (16ms)
 
         const calculateMaxScrollLeft = () => slider.scrollWidth - slider.clientWidth;
         const calculateSlideWidth = () => slider.querySelector('.slider-item').offsetWidth;
@@ -20,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const maxScrollLeft = calculateMaxScrollLeft();
             const scrollPosition = slider.scrollLeft;
             const progressValue = (scrollPosition / maxScrollLeft) * 100;
-            progressBar.style.width = `${progressValue}%`; // Hier die Korrektur
+            progressBar.style.width = `${progressValue}%`;
 
             const slideWidth = calculateSlideWidth();
 
@@ -58,10 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const x = e.pageX || e.touches[0].pageX;
             const distance = x - startX;
 
-            // Nur scrollen, wenn die Swipe-Distanz über dem Schwellenwert liegt
-            if (Math.abs(distance) > swipeThreshold) {
+            // Throttling der Updates
+            const now = Date.now();
+            if (now - lastScrollUpdateTime >= throttleInterval) {
                 slider.scrollLeft = scrollLeft - distance;
-                requestAnimationFrame(updateProgressBar);
+                lastScrollUpdateTime = now;
+                updateProgressBar();
             }
         };
 
@@ -79,12 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
         slider.addEventListener("scroll", () => {
             requestAnimationFrame(updateProgressBar);
         });
+
+        // Setze passive Event-Listener für Touch-Events, um Performance zu verbessern
         slider.addEventListener("mousedown", startDragging);
         slider.addEventListener("mousemove", dragSlider);
         slider.addEventListener("mouseup", stopDragging);
         slider.addEventListener("mouseleave", stopDragging);
-        slider.addEventListener("touchstart", startDragging);
-        slider.addEventListener("touchmove", dragSlider);
+
+        slider.addEventListener("touchstart", startDragging, { passive: true });
+        slider.addEventListener("touchmove", dragSlider, { passive: true });
         slider.addEventListener("touchend", stopDragging);
 
         // Fortschrittsbalken initialisieren
