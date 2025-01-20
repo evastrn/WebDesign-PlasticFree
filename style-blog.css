@@ -339,4 +339,12 @@ main {
 }
 
 
+.slider-container {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* Sanftes Scrollen auf iOS */
+}
 
+.slider-item {
+    flex-shrink: 0; /* Verhindert, dass sich Items verkleinern */
+    scroll-snap-align: center; /* Zentriert die Items */
+}
